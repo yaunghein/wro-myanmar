@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover" class="bg-brand text-white">
+		<div style="display: contents">%sveltekit.body%</div>
+		<!-- <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+		<script>
+			const lenis = new Lenis({ duration: 0.1 });
+			function raf(time) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			}
+			requestAnimationFrame(raf);
+		</script> -->
+	</body>
+</html>

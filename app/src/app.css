@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	font-size: 1.12vw;
+}
+
+@media screen and (max-width: 639px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+body {
+	overscroll-behavior: none;
+	height: 100%;
+}
+
+.hide-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	overflow: scroll;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type='number'] {
+	appearance: none;
+	-moz-appearance: textfield;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	transition: background-color 9999s ease-in-out 0s;
+	-webkit-text-fill-color: #000 !important;
+	font-size: inherit;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
+	transition: background-color 9999s ease-in-out 0s;
+	-webkit-text-fill-color: #fff !important;
+	font-size: inherit;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	select,
+	textarea,
+	input {
+		font-size: inherit;
+	}
+}
+
+.padding-global {
+	@apply px-9 sm:px-[7.5rem];
+}
+
+.wro-transition {
+	@apply transition-all duration-500 ease-out;
+}
