@@ -37,7 +37,7 @@ export const newsOthersQuery = groq`*[_type == "news" && slug.current != $slug &
 	slug,
 	excerpt,
 	mainImage
-}[0..5]`;
+}[0..2]`;
 
 export interface CustomImage {
 	image: ImageAsset;
