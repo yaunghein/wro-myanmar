@@ -1,0 +1,99 @@
+<mjml>
+	<mj-body background-color="#161026">
+		<mj-section padding="0">
+			<mj-column width="480px" padding="24px">
+				<mj-image
+					padding-right="40px"
+					width="204px"
+					height="46px"
+					padding-top="40px"
+					padding-bottom="40px"
+					src="https://i.ibb.co/DR41c4v/logo.png"
+				/>
+
+				<mj-text
+					align="center"
+					font-size="24px"
+					font-weight="900"
+					line-height="28px"
+					padding="0px"
+					font-family="Arial, sans-serif"
+					color="#fff"
+					css-class="uppercase"
+					text-transform="uppercase"
+				>
+					Below is the registered information from Name.
+				</mj-text>
+
+				<mj-text
+					align="center"
+					font-size="18px"
+					font-weight="900"
+					line-height="28px"
+					padding-top="32px"
+					padding-bottom="0px"
+					font-family="Arial, sans-serif"
+					color="#fff"
+					css-class="uppercase"
+					text-transform="uppercase"
+				>
+					Team Information
+				</mj-text>
+				<mj-table color="#fff">
+					<tr>
+						<td style="padding: 0; width: 50%; text-align: right; font-size: 16px">1995</td>
+						<td style="padding: 0 4px 0 4px; text-align: right; font-size: 16px">:</td>
+						<td style="padding: 0; width: 50%; text-align: left; font-size: 16px">1995</td>
+					</tr>
+					<tr>
+						<td style="padding: 0; width: 50%; text-align: right; font-size: 16px">1995</td>
+						<td style="padding: 0 4px 0 4px; text-align: right; font-size: 16px">:</td>
+						<td style="padding: 0; width: 50%; text-align: left; font-size: 16px">1995</td>
+					</tr>
+				</mj-table>
+
+				<mj-text
+					align="center"
+					font-size="18px"
+					font-weight="900"
+					line-height="28px"
+					padding-top="32px"
+					padding-bottom="0px"
+					font-family="Arial, sans-serif"
+					color="#fff"
+					css-class="uppercase"
+					text-transform="uppercase"
+				>
+					Team Information
+				</mj-text>
+				<mj-table color="#fff">
+					<tr>
+						<td style="padding: 0; width: 50%; text-align: right; font-size: 16px">1995</td>
+						<td style="padding: 0 4px 0 4px; text-align: right; font-size: 16px">:</td>
+						<td style="padding: 0; width: 50%; text-align: left; font-size: 16px">1995</td>
+					</tr>
+					<tr>
+						<td style="padding: 0; width: 50%; text-align: right; font-size: 16px">1995</td>
+						<td style="padding: 0 4px 0 4px; text-align: right; font-size: 16px">:</td>
+						<td style="padding: 0; width: 50%; text-align: left; font-size: 16px">1995</td>
+					</tr>
+				</mj-table>
+
+				<mj-button
+					font-weight="bold"
+					text-transform="uppercase"
+					font-family="Arial, sans-serif"
+					background-color="#006699"
+					color="white"
+					border-radius="0"
+					padding-top="32px"
+					href="https://invite.viber.com/?g2=AQAg%2Fq%2Bs3t8Cs1LRxSwHUpZs5aONq%2BCFkjwlJ8Eclng%2BhQf%2FIWRb51dVW6nrSh0J"
+					target="_blank"
+					padding-bottom="40px"
+				>
+					See in Google Sheet
+				</mj-button>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

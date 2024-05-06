@@ -14,7 +14,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	let email = new SibApiV3Sdk.SendSmtpEmail();
 	email.subject = subject;
 	email.sender = sender;
-	email.to = [to];
+	email.to = [...to];
 	email.replyTo = sender;
 	email.htmlContent = htmlContent;
 

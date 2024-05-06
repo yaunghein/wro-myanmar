@@ -3,6 +3,10 @@
 	// import type { ContactPage } from '$lib/sanity/types';
 	// export let contactPage: ContactPage;
 	import Success from './Success.svelte';
+	import Input from './Input.svelte';
+	import Select from './Select.svelte';
+	import getRegisterSenderEmailTemplate from '$lib/utils/email/register/sender';
+	import getRegisterWroEmailTemplate from '$lib/utils/email/register/wro';
 
 	const numbers: Record<number, string> = {
 		1: 'one',
@@ -10,7 +14,8 @@
 		3: 'three'
 	};
 	const initialFormData: Record<string, string> = {
-		teamInfo: '',
+		teamName: '',
+		email: '',
 		teamMembers: '',
 		category: '',
 		region: '',
@@ -44,23 +49,52 @@
 	};
 	let formData = initialFormData;
 	let haveReadRules = false;
+	$: if (haveReadRules) formData = { ...formData, readRule: 'Yes' };
+
 	let isSubmitting = false;
 	let isSuccess = false;
 
 	const handleSubmit = async () => {
 		isSubmitting = true;
-		try {
-			const resp = await fetch('/api/save-in-sheet', {
-				method: 'POST',
-				headers: { 'Content-type': 'application/json' },
-				body: JSON.stringify({ data: formData, range: 'Registrations' })
-			});
-			const data = await resp.json();
-			console.log({ data });
-		} catch (error) {
-			console.log({ error });
-		}
+
+		const preparedData = Object.keys(formData).map((key) =>
+			formData[key] === '' ? (formData[key] = '-') : formData[key]
+		);
+		await fetch('/api/save-in-sheet', {
+			method: 'POST',
+			headers: { 'Content-type': 'application/json' },
+			body: JSON.stringify({
+				values: [[new Date().toLocaleString(), ...preparedData]], // the payload format google sheet needs
+				range: 'Registrations'
+			})
+		}).catch((error) => console.log(error));
+
+		await fetch('/api/send-email', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				subject: `Registrations: ${formData.teamName}`,
+				sender: { name: formData.teamName, email: formData.email },
+				to: [{ name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' }],
+				htmlContent: getRegisterWroEmailTemplate(formData)
+			})
+		}).catch((error) => console.log(error));
+
+		await fetch('/api/send-email', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				subject: `Registrations Received from ${formData.teamName}.`,
+				sender: { name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' },
+				to: [{ name: formData.teamName, email: formData.email }],
+				htmlContent: getRegisterSenderEmailTemplate(formData.teamName)
+			})
+		}).catch((error) => console.log(error));
+
+		formData = initialFormData;
+		isSuccess = true;
 		isSubmitting = false;
+		window.scrollTo(0, 0);
 	};
 </script>
 
@@ -80,83 +114,45 @@
 				<h1
 					class="bg-gradient-primary bg-clip-text text-center font-black text-[2.5rem] uppercase leading-none tracking-tight text-transparent sm:text-5xl"
 				>
-					<!-- {cleanText(contactPage.title)} -->
 					World Robot Olympiad Myanmar Regional Championship
 				</h1>
 				<form
 					on:submit|preventDefault={handleSubmit}
 					class="flex w-full flex-col items-center gap-6 sm:mt-12 sm:gap-9"
 				>
-					<label class="grid w-full gap-3">
-						<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-							Team Information*
-						</span>
-						<input
-							type="text"
-							name="team-information"
-							placeholder="Type here"
-							bind:value={formData.teamInfo}
-							class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-						/>
-					</label>
+					<Input label="Team Name*" on:change={(e) => (formData.teamName = e.detail)} />
+					<Input label="Email*" type="email" on:change={(e) => (formData.email = e.detail)} />
+					<Select
+						required={false}
+						label="How Many team members?*"
+						on:change={(e) => (formData.teamMembers = e.detail)}
+						options={['2', '3']}
+					/>
+					<Select
+						label="Which Category would you join?*"
+						on:change={(e) => (formData.category = e.detail)}
+						options={[
+							'Robomission Elementary (8-12 Years old)',
+							'Robomission Junior (11-15 Years old)',
+							'Robomission Senior (14-19 Years old)',
+							'Future Innovators Elementary (8-12 Years old)',
+							'Future Innovators Junior (11-15 Years old)',
+							'Future Innovators Senior (14-19 Years old)'
+						]}
+					/>
+					<Select
+						label="Which Region would you like to compete in?*"
+						on:change={(e) => (formData.region = e.detail)}
+						options={['Yangon', 'Mandalay', 'Nay Pyi Taw', 'Mawlamyaing', 'Taunggyi']}
+					/>
 
-					<label class="grid w-full gap-3">
-						<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-							How Many team members?*
-						</span>
-						<select
-							bind:value={formData.teamMembers}
-							on:change={() => {
-								if (formData.teamMembers === '0') {
-									formData.teamMembers = '2';
-								}
-							}}
-							name="team-members"
-							class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-						>
-							<option value="0"></option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</label>
-
-					<label class="grid w-full gap-3">
-						<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-							Which Category would you join?*
-						</span>
-						<select
-							bind:value={formData.category}
-							name="category"
-							class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-						>
-							<option value=""></option>
-							<option value="Option One">Option One</option>
-							<option value="Option Two">Option Two</option>
-						</select>
-					</label>
-
-					<label class="grid w-full gap-3">
-						<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-							Which Region would you like to compete in?*
-						</span>
-						<select
-							bind:value={formData.region}
-							name="region"
-							class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-						>
-							<option value=""></option>
-							<option value="Option One">Option One</option>
-							<option value="Option Two">Option Two</option>
-						</select>
-					</label>
-
-					{#if Number(formData.teamMembers) > 0}
+					{#if formData.teamMembers && Number(formData.teamMembers) > 0}
 						<div class="mb-5 h-[1px] w-full bg-white opacity-25" />
 
 						<h2
 							class="mb-5 text-center font-black text-[2.5rem] uppercase leading-none tracking-tight sm:text-5xl"
 						>
-							ParticipantS Information
+							Participants Information
 						</h2>
 
 						{#each [...Array(Number(formData.teamMembers)).keys()] as index}
@@ -166,127 +162,48 @@
 								PARTICIPANT {numbers[index + 1]}
 							</h3>
 
-							<label class="grid w-full gap-3">
-								<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-									FULL NAME*
-								</span>
-								<input
-									required
-									type="text"
-									name={`${numbers[index + 1]}-full-name`}
-									placeholder="Type here"
-									bind:value={formData[`${numbers[index + 1]}FullName`]}
-									class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-								/>
-							</label>
-
-							<label class="grid w-full gap-3">
-								<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-									NICKNAME*
-								</span>
-								<input
-									type="text"
-									name={`${numbers[index + 1]}-nickname`}
-									placeholder="Type here"
-									bind:value={formData[`${numbers[index + 1]}Nickname`]}
-									class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-								/>
-							</label>
-
-							<label class="grid w-full gap-3">
-								<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-									AGE*
-								</span>
-								<input
-									type="number"
-									name={`${numbers[index + 1]}-age`}
-									placeholder="Type here"
-									bind:value={formData[`${numbers[index + 1]}Age`]}
-									class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-								/>
-							</label>
-
-							<label class="grid w-full gap-3">
-								<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-									DATE OF BIRTH*
-								</span>
-								<input
-									type="date"
-									name={`${numbers[index + 1]}-birthday`}
-									placeholder="Type here"
-									bind:value={formData[`${numbers[index + 1]}Birthday`]}
-									class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-								/>
-							</label>
-
-							<label class="grid w-full gap-3">
-								<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-									SCHOOL*
-								</span>
-								<input
-									type="text"
-									name={`${numbers[index + 1]}-school`}
-									placeholder="Type here"
-									bind:value={formData[`${numbers[index + 1]}School`]}
-									class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-								/>
-							</label>
-
-							<label class="grid w-full gap-3">
-								<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-									ADDRESS*
-								</span>
-								<input
-									type="text"
-									name={`${numbers[index + 1]}-address`}
-									placeholder="Type here"
-									bind:value={formData[`${numbers[index + 1]}Address`]}
-									class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-								/>
-							</label>
-
-							<label class="grid w-full gap-3">
-								<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-									PHONE NUMBER*
-								</span>
-								<input
-									type="text"
-									name={`${numbers[index + 1]}-phone`}
-									placeholder="Type here"
-									bind:value={formData[`${numbers[index + 1]}Phone`]}
-									class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-								/>
-							</label>
-
-							<label class="grid w-full gap-3">
-								<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-									PARENT NAME*
-								</span>
-								<input
-									type="text"
-									name={`${numbers[index + 1]}-parent`}
-									placeholder="Type here"
-									bind:value={formData[`${numbers[index + 1]}Parent`]}
-									class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-								/>
-							</label>
-
-							<label class="grid w-full gap-3">
-								<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
-									PARENT PHONE NUMBER*
-								</span>
-								<input
-									type="text"
-									name={`${numbers[index + 1]}-parent-phone`}
-									placeholder="Type here"
-									bind:value={formData[`${numbers[index + 1]}ParentPhone`]}
-									class="rounded-none bg-white bg-opacity-20 px-3 py-4 font-black text-sm leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6 sm:text-base"
-								/>
-							</label>
+							<Input
+								label="FULL NAME*"
+								on:change={(e) => (formData[`${numbers[index + 1]}FullName`] = e.detail)}
+							/>
+							<Input
+								label="NICKNAME*"
+								on:change={(e) => (formData[`${numbers[index + 1]}Nickname`] = e.detail)}
+							/>
+							<Input
+								type="text"
+								label="AGE*"
+								on:change={(e) => (formData[`${numbers[index + 1]}Age`] = e.detail)}
+							/>
+							<Input
+								label="DATE OF BIRTH*"
+								placeholder="DD/MM/YYYY"
+								on:change={(e) => (formData[`${numbers[index + 1]}Birthday`] = e.detail)}
+							/>
+							<Input
+								label="SCHOOL*"
+								on:change={(e) => (formData[`${numbers[index + 1]}School`] = e.detail)}
+							/>
+							<Input
+								label="ADDRESS*"
+								on:change={(e) => (formData[`${numbers[index + 1]}Address`] = e.detail)}
+							/>
+							<Input
+								label="PHONE NUMBER*"
+								on:change={(e) => (formData[`${numbers[index + 1]}Phone`] = e.detail)}
+							/>
+							<Input
+								label="PARENT NAME*"
+								on:change={(e) => (formData[`${numbers[index + 1]}Parent`] = e.detail)}
+							/>
+							<Input
+								label="PARENT PHONE NUMBER*"
+								on:change={(e) => (formData[`${numbers[index + 1]}ParentPhone`] = e.detail)}
+							/>
 						{/each}
 					{/if}
 
-					<label class="flex w-full gap-3">
+					<label class="flex w-full items-center gap-2">
 						<input
 							type="checkbox"
 							name="read-rules"
@@ -301,7 +218,7 @@
 					<button
 						class="w-full bg-gradient-primary px-3 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto sm:px-6"
 					>
-						{isSubmitting ? 'Submitting...' : 'SUBMIT'}
+						{isSubmitting ? 'Registering...' : 'Register'}
 					</button>
 				</form>
 			{/if}

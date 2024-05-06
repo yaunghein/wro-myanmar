@@ -15,9 +15,8 @@ const auth = new google.auth.GoogleAuth({
 	scopes: 'https://www.googleapis.com/auth/spreadsheets'
 });
 
-// change to POST later
 export const POST: RequestHandler = async ({ request }) => {
-	const { data, range } = await request.json();
+	const { values, range } = await request.json();
 	const client: any = await auth.getClient();
 	const googleSheets: any = google.sheets({ version: 'v4', auth: client });
 	const spreadsheetId = GOOGLE_SPREADSHEET_ID;
@@ -26,9 +25,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		spreadsheetId,
 		range,
 		valueInputOption: 'USER_ENTERED',
-		resource: {
-			values: [Object.values(data)]
-		}
+		resource: { values }
 	});
 	return json({ success: true, message: 'Save in google sheet successfully.' });
 };

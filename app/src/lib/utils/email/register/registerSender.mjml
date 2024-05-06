@@ -1,0 +1,61 @@
+<mjml>
+	<mj-body background-color="#161026">
+		<mj-section padding="0">
+			<mj-column width="480px" padding="24px">
+				<mj-image
+					padding-right="40px"
+					width="204px"
+					height="46px"
+					padding-top="40px"
+					padding-bottom="40px"
+					src="https://i.ibb.co/DR41c4v/logo.png"
+				/>
+
+				<mj-text
+					align="center"
+					font-size="24px"
+					font-weight="900"
+					line-height="28px"
+					padding="0px"
+					padding-bottom="24px"
+					font-family="Arial, sans-serif"
+					color="#fff"
+					css-class="uppercase"
+					text-transform="uppercase"
+				>
+					Hello Name, thank you so much for registering to our competition.
+				</mj-text>
+
+				<mj-text
+					align="center"
+					font-size="14px"
+					line-height="18px"
+					padding-top="0px"
+					padding-bottom="18px"
+					padding-right="56px"
+					padding-left="56px"
+					font-family="Arial, sans-serif"
+					color="#fff"
+					css-class="uppercase"
+				>
+					Please join the viber community by clicking the button below for more info about the
+					competitions and future updates.
+				</mj-text>
+
+				<mj-button
+					font-weight="bold"
+					text-transform="uppercase"
+					font-family="Arial, sans-serif"
+					background-color="#006699"
+					color="white"
+					border-radius="0"
+					href="https://invite.viber.com/?g2=AQAg%2Fq%2Bs3t8Cs1LRxSwHUpZs5aONq%2BCFkjwlJ8Eclng%2BhQf%2FIWRb51dVW6nrSh0J"
+					target="_blank"
+					padding-bottom="40px"
+				>
+					Join the Community
+				</mj-button>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>
