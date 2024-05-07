@@ -5,6 +5,7 @@
 	import Select from './Select.svelte';
 	import getOrderSenderEmailTemplate from '$lib/utils/email/order/sender';
 	import getOrderWroEmailTemplate from '$lib/utils/email/order/wro';
+	import Error from '../Error.svelte';
 	// import { cleanText } from '$lib/utils';
 	// import type { ContactPage } from '$lib/sanity/types';
 	// export let contactPage: ContactPage;
@@ -26,44 +27,57 @@
 	const handleSubmit = async () => {
 		isSubmitting = true;
 
-		const preparedData = Object.keys({ ...formData }).map((key) =>
-			formData[key] === '' ? (formData[key] = '-') : formData[key]
-		);
-		await fetch('/api/save-in-sheet', {
-			method: 'POST',
-			headers: { 'Content-type': 'application/json' },
-			body: JSON.stringify({
-				values: [[new Date().toLocaleString(), ...preparedData]], // the payload format google sheet needs
-				range: 'Material Orders'
-			})
-		});
+		try {
+			const preparedData = Object.keys({ ...formData }).map((key) =>
+				formData[key] === '' ? (formData[key] = '-') : formData[key]
+			);
+			const sheetResp = await fetch('/api/save-in-sheet', {
+				method: 'POST',
+				headers: { 'Content-type': 'application/json' },
+				body: JSON.stringify({
+					values: [[new Date().toLocaleString(), ...preparedData]], // the payload format google sheet needs
+					range: 'Material Orders'
+				})
+			});
+			if (!sheetResp.ok) {
+				throw await sheetResp.json();
+			}
 
-		await fetch('/api/send-email', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				subject: `Material Order: ${formData.name}`,
-				sender: { name: formData.name, email: formData.email },
-				to: [{ name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' }],
-				htmlContent: getOrderWroEmailTemplate(formData)
-			})
-		});
+			const wroResp = await fetch('/api/send-email', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					subject: `Material Order: ${formData.name}`,
+					sender: { name: formData.name, email: formData.email },
+					to: [{ name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' }],
+					htmlContent: getOrderWroEmailTemplate(formData)
+				})
+			});
+			if (!wroResp.ok) {
+				throw await wroResp.json();
+			}
 
-		await fetch('/api/send-email', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				subject: `Order from ${formData.name} for ${formData.quantity} ${formData.itemName} Received.`,
-				sender: { name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' },
-				to: [{ name: formData.name, email: formData.email }],
-				htmlContent: getOrderSenderEmailTemplate(formData.name, formData.itemName)
-			})
-		});
+			const senderResp = await fetch('/api/send-email', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					subject: `Order from ${formData.name} for ${formData.quantity} ${formData.itemName} Received.`,
+					sender: { name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' },
+					to: [{ name: formData.name, email: formData.email }],
+					htmlContent: getOrderSenderEmailTemplate(formData.name, formData.itemName)
+				})
+			});
+			if (!senderResp.ok) {
+				throw await senderResp.json();
+			}
 
-		formData = initialFormData;
-		isSuccess = true;
+			formData = initialFormData;
+			isSuccess = true;
+			window.scrollTo(0, 0);
+		} catch (error) {
+			console.log(error);
+		}
 		isSubmitting = false;
-		window.scrollTo(0, 0);
 	};
 </script>
 
