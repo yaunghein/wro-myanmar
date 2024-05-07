@@ -14,7 +14,9 @@
 					{cleanText(seasonPage.heroTitleNormal)}
 					{cleanText(seasonPage.heroTitleGradient)}
 				</h1>
-				<div class="font-black text-[2.5rem] uppercase leading-none tracking-tight sm:text-[4rem]">
+				<div
+					class="max-w-[45rem] font-black text-[2.5rem] uppercase leading-none tracking-tight sm:text-[4rem]"
+				>
 					{cleanText(seasonPage.heroTitleNormal)}
 					<span class="bg-gradient-primary bg-clip-text text-transparent">
 						{cleanText(seasonPage.heroTitleGradient)}

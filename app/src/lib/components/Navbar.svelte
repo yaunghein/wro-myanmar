@@ -132,7 +132,7 @@
 									</a>
 									<a
 										on:click={() => (isCompetitionsOpen = !isCompetitionsOpen)}
-										href="/season-2024"
+										href="/register"
 										class="wro-transition group relative leading-tight hover:text-accent-100"
 									>
 										<span class="whitespace-nowrap">Register Now</span>

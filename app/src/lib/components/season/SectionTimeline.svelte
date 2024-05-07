@@ -43,7 +43,12 @@
 	const eventTimeline = prepareEvents(seasonPage.eventTimeline || []);
 </script>
 
-<section class="relative">
+<section
+	class="relative"
+	data-use-in-view
+	data-name={cleanText(seasonPage.timelineLabel)}
+	id="timeline"
+>
 	<div class="padding-global">
 		<div class="pt-9 sm:pt-16">
 			<div class="flex flex-col items-center gap-9">
@@ -76,7 +81,7 @@
 				</p>
 
 				<a
-					href="/"
+					href="/register"
 					class="bg-gradient-primary px-6 py-4 font-black text-sm uppercase leading-none tracking-tight text-white sm:text-base"
 				>
 					{cleanText(seasonPage.seasonBtnLabel)}

@@ -41,7 +41,7 @@
 	];
 </script>
 
-<section>
+<section id="robomission">
 	<div class="w-full overflow-hidden">
 		<img
 			src={urlFor(homePage.robo?.featuredImage?.image).url()}

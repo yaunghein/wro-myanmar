@@ -26,7 +26,7 @@
 			{cleanText(homePage.partnerDescription)}
 		</p>
 		<a
-			href="/"
+			href="/join-as-partner"
 			class="w-full bg-gradient-primary px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto"
 		>
 			{cleanText(homePage.partnerBtnLabel)}

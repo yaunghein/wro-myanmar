@@ -53,7 +53,7 @@
 				</div>
 
 				<a
-					href="/"
+					href="/register"
 					class="w-full bg-gradient-primary px-6 py-4 text-center font-black text-sm uppercase leading-none tracking-tight text-white sm:w-auto sm:text-base"
 				>
 					{cleanText(homePage.heroBtnLabel)}

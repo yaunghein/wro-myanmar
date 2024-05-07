@@ -20,7 +20,12 @@
 	};
 </script>
 
-<section class="bg-white text-black">
+<section
+	id="calendar"
+	class="bg-white text-black"
+	data-use-in-view
+	data-name={cleanText(seasonPage.calendarLabel)}
+>
 	<div class="padding-global">
 		<div class="pt-9 sm:pt-16">
 			<div class=" flex flex-col items-center gap-9">

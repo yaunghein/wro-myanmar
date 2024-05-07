@@ -14,7 +14,7 @@
 					viverra ipsum. Consequat id porta nibh venenatis cras sed felis.
 				</p>
 				<a
-					href="/"
+					href="/register"
 					class="w-full bg-gradient-primary px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto"
 				>
 					REGISTER NOW
@@ -56,7 +56,7 @@
 					viverra ipsum. Consequat id porta nibh venenatis cras sed felis.
 				</p>
 				<a
-					href="/"
+					href="/join-as-partner"
 					class="w-full bg-gradient-robomission px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-black sm:w-auto"
 				>
 					JOIN NOW
@@ -89,7 +89,7 @@
 					viverra ipsum. Consequat id porta nibh venenatis cras sed felis.
 				</p>
 				<a
-					href="/"
+					href="/sponsorship"
 					class="w-full bg-accent-three px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto"
 				>
 					Contact us

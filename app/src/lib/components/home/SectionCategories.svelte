@@ -42,13 +42,13 @@
 
 				<div class="relative z-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
 					<a
-						href="/"
+						href="#robomission"
 						class="tracking-tigh w-full bg-gradient-robomission px-6 py-4 text-center font-black text-sm uppercase leading-none text-black sm:w-auto sm:text-base"
 					>
 						{cleanText(homePage.categoryBtnOneLabel)}
 					</a>
 					<a
-						href="/"
+						href="#future-innovators"
 						class="w-full bg-gradient-future px-6 py-4 text-center font-black text-sm uppercase leading-none tracking-tight text-white sm:w-auto sm:text-base"
 					>
 						{cleanText(homePage.categoryBtnTwoLabel)}

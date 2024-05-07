@@ -6,7 +6,12 @@
 	export let seasonPage: SeasonPage;
 </script>
 
-<section class="bg-white text-black">
+<section
+	id="register"
+	class="bg-white text-black"
+	data-use-in-view
+	data-name={cleanText(seasonPage.registrationLabel)}
+>
 	<div class="grid grid-cols-1 sm:grid-cols-2">
 		<div class="padding-global flex flex-col items-start gap-9 py-9 sm:py-16 sm:!pr-24">
 			<h2
@@ -18,7 +23,7 @@
 				{cleanText(seasonPage.registerDescription)}
 			</p>
 			<a
-				href="/"
+				href="/register"
 				class="w-full bg-gradient-primary px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto"
 			>
 				{cleanText(seasonPage.registerBtnLabel)}

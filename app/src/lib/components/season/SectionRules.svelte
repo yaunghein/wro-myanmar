@@ -30,7 +30,7 @@
 	];
 </script>
 
-<section>
+<section id="rules" data-use-in-view data-name={cleanText(seasonPage.rulesLabel)}>
 	<div class="padding-global">
 		<div class="py-9 sm:py-16">
 			<div class="flex flex-col items-center gap-9">

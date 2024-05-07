@@ -17,7 +17,7 @@
 	];
 </script>
 
-<section>
+<section id="future-innovators">
 	<div class="w-full overflow-hidden">
 		<img
 			src={urlFor(homePage.innovator?.featuredImage?.image).url()}
