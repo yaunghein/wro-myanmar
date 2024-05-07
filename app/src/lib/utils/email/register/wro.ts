@@ -807,7 +807,7 @@ export default function (data: any) {
 																			valign="middle"
 																		>
 																			<a
-																				href="https://docs.google.com/spreadsheets/d/1AzHzDEg3HngOZL16SXsnnUQyDe8C_4f06pROr-XezUE/"
+																				href="https://docs.google.com/spreadsheets/d/1AzHzDEg3HngOZL16SXsnnUQyDe8C_4f06pROr-XezUE/edit#gid=0"
 																				style="
 																					background: #006699;
 																					color: white;

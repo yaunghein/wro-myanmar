@@ -213,7 +213,7 @@
 							out:scale={{ start: 0.9 }}
 							class="absolute left-1/2 top-5 -translate-x-1/2 pt-5"
 						>
-							<div class="flex flex-col gap-6 border-2 border-accent-100 bg-brand p-6">
+							<div class="flex flex-col gap-6 border-2 border-accent-100 bg-brand p-6 pr-8">
 								<div class="font-black uppercase">Contact</div>
 								<div class="flex flex-col items-start gap-2">
 									<a

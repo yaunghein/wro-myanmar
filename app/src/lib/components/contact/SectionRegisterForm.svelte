@@ -57,7 +57,7 @@
 	const handleSubmit = async () => {
 		isSubmitting = true;
 
-		const preparedData = Object.keys(formData).map((key) =>
+		const preparedData = Object.keys({ ...formData }).map((key) =>
 			formData[key] === '' ? (formData[key] = '-') : formData[key]
 		);
 		await fetch('/api/save-in-sheet', {
@@ -123,7 +123,6 @@
 					<Input label="Team Name*" on:change={(e) => (formData.teamName = e.detail)} />
 					<Input label="Email*" type="email" on:change={(e) => (formData.email = e.detail)} />
 					<Select
-						required={false}
 						label="How Many team members?*"
 						on:change={(e) => (formData.teamMembers = e.detail)}
 						options={['2', '3']}
