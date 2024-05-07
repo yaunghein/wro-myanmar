@@ -45,7 +45,7 @@
 				subject: `Material Order: ${formData.name}`,
 				sender: { name: formData.name, email: formData.email },
 				to: [{ name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' }],
-				htmlContent: getOrderSenderEmailTemplate(formData.name, formData.itemName)
+				htmlContent: getOrderWroEmailTemplate(formData)
 			})
 		});
 
@@ -56,7 +56,7 @@
 				subject: `Order from ${formData.name} for ${formData.quantity} ${formData.itemName} Received.`,
 				sender: { name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' },
 				to: [{ name: formData.name, email: formData.email }],
-				htmlContent: getOrderWroEmailTemplate(formData)
+				htmlContent: getOrderSenderEmailTemplate(formData.name, formData.itemName)
 			})
 		});
 
