@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { cleanText, formatDate } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
+	import parallaxImage from '$lib/utils/parallaxImage';
 
 	import { type News } from '$lib/sanity/queries';
 	import type { ImageAsset, Slug } from '@sanity/types';
@@ -23,8 +24,9 @@
 		</div>
 		<p class="text-sm leading-tight sm:text-base">{cleanText(news.excerpt)}</p>
 	</div>
-	<div class="mt-6 sm:mt-0">
+	<div class="mt-6 overflow-hidden bg-off-white sm:mt-0">
 		<img
+			use:parallaxImage
 			src={urlFor(mainImage).url()}
 			alt="Cover image for {news.title}"
 			class="aspect-[4/3] w-full object-cover sm:aspect-[2.42/1]"

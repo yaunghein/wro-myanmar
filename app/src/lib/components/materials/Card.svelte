@@ -3,17 +3,21 @@
 	import { formatMMK, cleanText } from '$lib/utils';
 	import { twMerge as twm } from 'tailwind-merge';
 	import { type Material } from '$lib/sanity/queries';
+	import parallaxImage from '$lib/utils/parallaxImage';
 
 	export let material: Material;
 	export let bg: 'bg-white' | 'bg-off-white' = 'bg-off-white';
 </script>
 
 <div class="group flex flex-col {bg} p-3">
-	<img
-		src={urlFor(material.image.image).url()}
-		alt={cleanText(material.image.caption)}
-		class="mb-2 aspect-[2.02/1] w-full object-cover sm:mb-3"
-	/>
+	<div class="mb-3 overflow-hidden">
+		<img
+			use:parallaxImage
+			src={urlFor(material.image.image).url()}
+			alt={cleanText(material.image.caption)}
+			class="mb-2 aspect-[2.02/1] w-full object-cover"
+		/>
+	</div>
 	<h2 class="font-black text-sm uppercase leading-tight tracking-tight sm:text-2xl">
 		{material.name}
 	</h2>

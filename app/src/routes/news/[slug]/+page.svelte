@@ -6,6 +6,7 @@
 	import Card from '$lib/components/news/Card.svelte';
 	import MetaData from '$lib/components/MetaData.svelte';
 	import Error from '$lib/components/Error.svelte';
+	import parallaxImage from '$lib/utils/parallaxImage';
 
 	import type { PageServerData } from './$types';
 	import type { ImageAsset } from '@sanity/types';
@@ -34,8 +35,9 @@
 		</h1>
 		<div class="mt-6 text-xs sm:mt-9 sm:text-base">{formatDate(singleNews._createdAt)}</div>
 		<div class="my-3 h-[1px] w-full bg-off-white sm:my-6" />
-		<div class="mb-6 mt-4 sm:mb-16 sm:mt-6">
+		<div class="mb-6 mt-4 overflow-hidden sm:mb-16 sm:mt-6">
 			<img
+				use:parallaxImage
 				src={urlFor(mainImage).url()}
 				alt="Cover image for {singleNews.title}"
 				class="aspect-[4/3] w-full object-cover sm:aspect-[2.4/1]"

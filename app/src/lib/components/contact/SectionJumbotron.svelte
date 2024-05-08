@@ -1,3 +1,7 @@
+<script lang="ts">
+	import parallaxImage from '$lib/utils/parallaxImage';
+</script>
+
 <section class="bg-white text-black">
 	<div class="flex flex-col gap-0 py-0 sm:gap-16 sm:py-16">
 		<div class="relative grid grid-cols-1 items-center sm:grid-cols-2">
@@ -21,8 +25,9 @@
 				</a>
 			</div>
 			<div class="">
-				<div class="sm:pr-[7.5rem]">
+				<div class="overflow-hidden sm:pr-[7.5rem]">
 					<img
+						use:parallaxImage
 						src="/images/contact-register.webp"
 						alt=""
 						class="aspect-square w-full object-cover"
@@ -39,8 +44,13 @@
 
 		<div class="relative flex flex-col-reverse items-center sm:grid sm:grid-cols-2">
 			<div>
-				<div class="sm:pl-[7.5rem]">
-					<img src="/images/contact-join.webp" alt="" class="aspect-square w-full object-cover" />
+				<div class="overflow-hidden sm:pl-[7.5rem]">
+					<img
+						use:parallaxImage
+						src="/images/contact-join.webp"
+						alt=""
+						class="aspect-square w-full object-cover"
+					/>
 				</div>
 			</div>
 			<div class="padding-global flex flex-col items-start gap-9 py-9 sm:py-16 sm:!pl-24">
@@ -96,8 +106,9 @@
 				</a>
 			</div>
 			<div>
-				<div class="sm:pr-[7.5rem]">
+				<div class="overflow-hidden sm:pr-[7.5rem]">
 					<img
+						use:parallaxImage
 						src="/images/contact-sponsor.webp"
 						alt=""
 						class="aspect-square w-full object-cover"

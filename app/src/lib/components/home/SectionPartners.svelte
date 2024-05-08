@@ -2,6 +2,7 @@
 	import { cleanText } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import type { HomePage } from '$lib/sanity/types';
+	import parallaxImage from '$lib/utils/parallaxImage';
 
 	export let homePage: HomePage;
 </script>
@@ -9,6 +10,7 @@
 <section class="relative sm:aspect-[2.77/1]">
 	<div class="absolute inset-0 h-full w-full overflow-hidden">
 		<img
+			use:parallaxImage
 			src={urlFor(homePage.partnerImage.image).url()}
 			alt="Students"
 			class="h-full w-full object-cover"

@@ -6,6 +6,7 @@
 	import { cleanText } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import type { HomePage } from '$lib/sanity/types';
+	import parallaxImage from '$lib/utils/parallaxImage';
 
 	export let homePage: HomePage;
 
@@ -65,8 +66,9 @@
 					<div class="swiper-wrapper h-full">
 						{#if homePage.sliderImages}
 							{#each homePage.sliderImages as image}
-								<div class="swiper-slide h-full w-full">
+								<div class="swiper-slide h-full w-full overflow-hidden">
 									<img
+										use:parallaxImage
 										src={urlFor(image.image).url()}
 										alt={cleanText(image.caption)}
 										class="h-full w-full object-cover"

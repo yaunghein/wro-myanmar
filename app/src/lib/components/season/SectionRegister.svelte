@@ -2,6 +2,7 @@
 	import { cleanText } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import type { SeasonPage } from '$lib/sanity/types';
+	import parallaxImage from '$lib/utils/parallaxImage';
 
 	export let seasonPage: SeasonPage;
 </script>
@@ -29,8 +30,9 @@
 				{cleanText(seasonPage.registerBtnLabel)}
 			</a>
 		</div>
-		<div>
+		<div class="overflow-hidden">
 			<img
+				use:parallaxImage
 				src={urlFor(seasonPage.registerImage?.image).url()}
 				alt={cleanText(seasonPage.registerImage?.caption)}
 				class="aspect-square h-full w-full object-cover sm:aspect-auto"

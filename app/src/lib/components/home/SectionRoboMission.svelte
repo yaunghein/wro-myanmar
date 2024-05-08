@@ -4,6 +4,7 @@
 	import { urlForPDF } from '$lib/sanity/pdf';
 	import type { HomePage } from '$lib/sanity/types';
 	import { PortableText } from '@portabletext/svelte';
+	import parallaxImage from '$lib/utils/parallaxImage';
 
 	export let homePage: HomePage;
 
@@ -44,6 +45,7 @@
 <section id="robomission">
 	<div class="w-full overflow-hidden">
 		<img
+			use:parallaxImage
 			src={urlFor(homePage.robo?.featuredImage?.image).url()}
 			alt={cleanText(homePage.robo?.featuredImage?.caption)}
 			class="aspect-square w-full object-cover sm:aspect-[2.77/1]"

@@ -10,6 +10,7 @@
 	import type { PageServerData } from './$types';
 	import Swiper from 'swiper';
 	import { Autoplay } from 'swiper/modules';
+	import parallaxImage from '$lib/utils/parallaxImage';
 
 	import 'swiper/css';
 
@@ -46,11 +47,14 @@
 		>
 			<div class="swiper-wrapper flex h-full">
 				{#each material.images as image}
-					<img
-						src={urlFor(image.image).url()}
-						alt={image.caption}
-						class="swiper-slide h-full w-full shrink-0 object-cover sm:!w-[36.88rem]"
-					/>
+					<div class="swiper-slide h-full w-full shrink-0 overflow-hidden sm:!w-[36.88rem]">
+						<img
+							use:parallaxImage
+							src={urlFor(image.image).url()}
+							alt={image.caption}
+							class="h-full w-full object-cover"
+						/>
+					</div>
 				{/each}
 			</div>
 		</div>
