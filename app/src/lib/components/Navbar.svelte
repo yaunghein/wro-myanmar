@@ -341,6 +341,13 @@
 			</div>
 			<a
 				on:click={() => menuTl?.reverse()}
+				href="/partners"
+				class="mobile-menu-link wro-transition padding-global group relative block border-b border-white border-opacity-25 py-4 leading-tight"
+			>
+				<span>Partners</span>
+			</a>
+			<a
+				on:click={() => menuTl?.reverse()}
 				href="/materials"
 				class="mobile-menu-link wro-transition padding-global group relative block border-b border-white border-opacity-25 py-4 leading-tight"
 			>

@@ -2,10 +2,8 @@
 	import { page } from '$app/stores';
 	import Success from './Success.svelte';
 	import Input from './Input.svelte';
-	import Select from './Select.svelte';
 	import getOrderSenderEmailTemplate from '$lib/utils/email/order/sender';
 	import getOrderWroEmailTemplate from '$lib/utils/email/order/wro';
-	import Error from '../Error.svelte';
 	// import { cleanText } from '$lib/utils';
 	// import type { ContactPage } from '$lib/sanity/types';
 	// export let contactPage: ContactPage;
@@ -77,6 +75,7 @@
 		} catch (error) {
 			console.log(error);
 		}
+
 		isSubmitting = false;
 	};
 </script>
@@ -90,7 +89,7 @@
 			class="mx-auto flex max-w-[36.8rem] flex-col items-center gap-9 pb-9 pt-9 sm:pb-16 sm:pt-32"
 		>
 			{#if isSuccess}
-				<div class="h-full sm:pb-16">
+				<div class="h-full sm:pb-12">
 					<Success
 						message="Your order has been received."
 						description="We will contact you soon to proceed the purchasing process. For now, you can join our viber community for the up-to-date information about competitions, events and future updates."

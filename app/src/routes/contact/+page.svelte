@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { useQuery } from '@sanity/svelte-loader';
-	import SectionForm from '$lib/components/contact/SectionForm.svelte';
+	import SectionGeneralForm from '$lib/components/contact/SectionGeneralForm.svelte';
 	import SectionJumbotron from '$lib/components/contact/SectionJumbotron.svelte';
 	import MetaData from '$lib/components/MetaData.svelte';
 
@@ -13,5 +13,5 @@
 </script>
 
 <MetaData metaData={contactPage.metaData} />
-<SectionForm {contactPage} />
+<SectionGeneralForm {contactPage} />
 <SectionJumbotron />

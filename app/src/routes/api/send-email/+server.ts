@@ -21,7 +21,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		if (attachments) email.attachment = attachments;
 
-		await brevo.sendTransacEmail(email).catch((error) => console.log({ error }));
+		await brevo.sendTransacEmail(email).catch((err: any) => error(500, err.message));
 		return json({ success: true });
 	} catch (err: any) {
 		return error(500, err.message);

@@ -57,44 +57,58 @@
 	const handleSubmit = async () => {
 		isSubmitting = true;
 
-		const preparedData = Object.keys({ ...formData }).map((key) =>
-			formData[key] === '' ? (formData[key] = '-') : formData[key]
-		);
-		await fetch('/api/save-in-sheet', {
-			method: 'POST',
-			headers: { 'Content-type': 'application/json' },
-			body: JSON.stringify({
-				values: [[new Date().toLocaleString(), ...preparedData]], // the payload format google sheet needs
-				range: 'Registrations'
-			})
-		}).catch((error) => console.log(error));
+		try {
+			const preparedData = Object.keys({ ...formData }).map((key) =>
+				formData[key] === '' ? (formData[key] = '-') : formData[key]
+			);
+			const sheetResp = await fetch('/api/save-in-sheet', {
+				method: 'POST',
+				headers: { 'Content-type': 'application/json' },
+				body: JSON.stringify({
+					values: [[new Date().toLocaleString(), ...preparedData]], // the payload format google sheet needs
+					range: 'Registrations'
+				})
+			});
+			if (!sheetResp.ok) {
+				throw await sheetResp.json();
+			}
 
-		await fetch('/api/send-email', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				subject: `Registrations: ${formData.teamName}`,
-				sender: { name: formData.teamName, email: formData.email },
-				to: [{ name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' }],
-				htmlContent: getRegisterWroEmailTemplate(formData)
-			})
-		}).catch((error) => console.log(error));
+			const wroResp = await fetch('/api/send-email', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					subject: `Registrations: ${formData.teamName}`,
+					sender: { name: formData.teamName, email: formData.email },
+					to: [{ name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' }],
+					htmlContent: getRegisterWroEmailTemplate(formData)
+				})
+			});
+			if (!wroResp.ok) {
+				throw await wroResp.json();
+			}
 
-		await fetch('/api/send-email', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				subject: `Registrations Received from ${formData.teamName}.`,
-				sender: { name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' },
-				to: [{ name: formData.teamName, email: formData.email }],
-				htmlContent: getRegisterSenderEmailTemplate(formData.teamName)
-			})
-		}).catch((error) => console.log(error));
+			const senderResp = await fetch('/api/send-email', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					subject: `Registrations Received from ${formData.teamName}.`,
+					sender: { name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' },
+					to: [{ name: formData.teamName, email: formData.email }],
+					htmlContent: getRegisterSenderEmailTemplate(formData.teamName)
+				})
+			});
+			if (!senderResp.ok) {
+				throw await senderResp.json();
+			}
 
-		formData = initialFormData;
-		isSuccess = true;
+			formData = initialFormData;
+			isSuccess = true;
+			window.scrollTo(0, 0);
+		} catch (error) {
+			console.log(error);
+		}
+
 		isSubmitting = false;
-		window.scrollTo(0, 0);
 	};
 </script>
 
@@ -107,7 +121,7 @@
 			class="mx-auto flex max-w-[36.8rem] flex-col items-center gap-9 pb-9 pt-9 sm:pb-16 sm:pt-32"
 		>
 			{#if isSuccess}
-				<div class="h-full sm:pb-16">
+				<div class="h-full sm:pb-12">
 					<Success />
 				</div>
 			{:else}

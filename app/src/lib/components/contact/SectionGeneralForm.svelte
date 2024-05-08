@@ -1,19 +1,17 @@
 <script lang="ts">
+	import { cleanText } from '$lib/utils';
+	import type { ContactPage } from '$lib/sanity/types';
 	import Input from './Input.svelte';
 	import Success from './Success.svelte';
-	import getPartnerSenderEmailTemplate from '$lib/utils/email/partner/sender';
-	import getPartnerWroEmailTemplate from '$lib/utils/email/partner/wro';
-	// import { cleanText } from '$lib/utils';
-	// import type { ContactPage } from '$lib/sanity/types';
-	// export let contactPage: ContactPage;
+	import getGeneralSenderEmailTemplate from '$lib/utils/email/general/sender';
+	import getGeneralWroEmailTemplate from '$lib/utils/email/general/wro';
+
+	export let contactPage: ContactPage;
 
 	const initialFormData: Record<string, string> = {
 		name: '',
-		position: '',
-		phone: '',
 		email: '',
-		organization: '',
-		address: ''
+		message: ''
 	};
 	let formData = initialFormData;
 	let isSubmitting = false;
@@ -31,7 +29,7 @@
 				headers: { 'Content-type': 'application/json' },
 				body: JSON.stringify({
 					values: [[new Date().toLocaleString(), ...preparedData]], // the payload format google sheet needs
-					range: 'Partners'
+					range: 'General'
 				})
 			});
 			if (!sheetResp.ok) {
@@ -42,10 +40,10 @@
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					subject: `Join as Partner: ${formData.name}`,
+					subject: `General Inquiry: ${formData.name}`,
 					sender: { name: formData.name, email: formData.email },
 					to: [{ name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' }],
-					htmlContent: getPartnerWroEmailTemplate(formData)
+					htmlContent: getGeneralWroEmailTemplate(formData)
 				})
 			});
 			if (!wroResp.ok) {
@@ -56,10 +54,10 @@
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					subject: `Join as Partner Submission from ${formData.name} Received.`,
+					subject: `General Inquiry from ${formData.name} Received.`,
 					sender: { name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' },
 					to: [{ name: formData.name, email: formData.email }],
-					htmlContent: getPartnerSenderEmailTemplate(formData.name)
+					htmlContent: getGeneralSenderEmailTemplate(formData.name)
 				})
 			});
 			if (!senderResp.ok) {
@@ -77,9 +75,6 @@
 	};
 </script>
 
-<svelte:head>
-	<title>Partner Registration - WRO Myanmar</title>
-</svelte:head>
 <section class="relative">
 	<div class="padding-global">
 		<div
@@ -92,26 +87,31 @@
 					/>
 				</div>
 			{:else}
-				<h1
-					class="bg-gradient-primary bg-clip-text text-center font-black text-[2.5rem] uppercase leading-none tracking-tight text-transparent sm:text-5xl"
-				>
-					<!-- {cleanText(contactPage.title)} -->
-					Partner Registration
+				<h1 class="font-black text-[2.5rem] uppercase leading-none tracking-tight sm:text-[4rem]">
+					{cleanText(contactPage.title)}
 				</h1>
+				<p class="text-center text-sm leading-tight sm:text-base">
+					{cleanText(contactPage.description)}
+				</p>
 
 				<form
 					on:submit|preventDefault={handleSubmit}
 					class="flex w-full flex-col items-center gap-6 sm:mt-12 sm:gap-9"
 				>
-					<Input label="Name of Contact Person*" on:change={(e) => (formData.name = e.detail)} />
-					<Input label="Position*" on:change={(e) => (formData.position = e.detail)} />
-					<Input label="Phone Number*" on:change={(e) => (formData.phone = e.detail)} />
+					<Input label="Name*" on:change={(e) => (formData.name = e.detail)} />
 					<Input label="Email*" on:change={(e) => (formData.email = e.detail)} />
-					<Input
-						label="School/Organization Name*"
-						on:change={(e) => (formData.organization = e.detail)}
-					/>
-					<Input label="ADDRESS*" on:change={(e) => (formData.address = e.detail)} />
+
+					<label class="grid w-full gap-3">
+						<span class="font-black text-sm uppercase leading-none tracking-tight sm:text-2xl">
+							MESSAGE*
+						</span>
+						<textarea
+							name="message"
+							placeholder="Type here"
+							bind:value={formData.message}
+							class="min-h-36 rounded-none bg-white bg-opacity-20 px-3 py-4 font-black leading-none tracking-tight outline-none placeholder:uppercase placeholder:text-white placeholder:text-opacity-25 sm:px-6"
+						/>
+					</label>
 
 					<button
 						class="w-full bg-gradient-primary px-3 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto sm:px-6"
