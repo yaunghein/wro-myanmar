@@ -13,8 +13,8 @@
 	};
 </script>
 
-<div class="flex w-96 shrink-0 flex-col items-start gap-4">
-	<h3 class="font-black text-5xl leading-none tracking-tight">{partner.name}</h3>
+<div class="flex w-full shrink-0 flex-col items-start gap-4 sm:w-96">
+	<h3 class="font-black text-[2rem] leading-none tracking-tight sm:text-5xl">{partner.name}</h3>
 	<img
 		src={urlFor(partner.image.image).url()}
 		alt={cleanText(partner.image.caption)}

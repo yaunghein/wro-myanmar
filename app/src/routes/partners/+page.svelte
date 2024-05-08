@@ -8,6 +8,7 @@
 
 	$: q = useQuery(data);
 	$: ({ data: partnersData } = $q);
+	$: console.log(partnersData);
 	$: partners = partnersData?.reduce<Record<string, Partner[]>>(
 		(acc, partner) => {
 			acc[partner.type].push(partner);
@@ -37,53 +38,71 @@
 </script>
 
 <h1 class="sr-only">Partners</h1>
-{#each Object.keys(partners) as key}
-	{#if partners[key].length > 0}
-		<section class="relative bg-white text-black">
-			<div class="padding-global pb-20 pt-32">
-				{#if headers[key].padding}
-					<div class={headers[key].padding}>
+<div class="flex flex-col gap-16 bg-white py-14 text-black sm:block sm:py-0">
+	{#each Object.keys(partners) as key}
+		{#if partners[key].length > 0}
+			<section class="relative">
+				<div class="padding-global sm:pb-20 sm:pt-32">
+					{#if headers[key].padding}
+						<div class={headers[key].padding}>
+							<h2
+								class="{headers[key]
+									.color} hidden max-w-[24rem] font-black text-[4rem] uppercase leading-none tracking-tight sm:block"
+							>
+								{key} partners
+							</h2>
+						</div>
+					{:else}
 						<h2
 							class="{headers[key]
-								.color} max-w-[24rem] font-black text-[4rem] uppercase leading-none tracking-tight"
+								.color} hidden max-w-[24rem] font-black text-[4rem] uppercase leading-none tracking-tight sm:block"
 						>
 							{key} partners
 						</h2>
-					</div>
-				{:else}
+					{/if}
 					<h2
 						class="{headers[key]
-							.color} max-w-[24rem] font-black text-[4rem] uppercase leading-none tracking-tight"
+							.color} text-left font-black text-[2.5rem] uppercase leading-none tracking-tight sm:hidden"
 					>
 						{key} partners
 					</h2>
-				{/if}
 
-				{#if partners[key].length === 1}
-					<div class="mx-auto mt-16 flex max-w-[62rem] items-start justify-center">
-						<Card partner={partners[key][0]} />
+					<div class="hidden sm:block">
+						{#if partners[key].length === 1}
+							<div class="mx-auto mt-16 flex max-w-[62rem] items-start justify-center">
+								<Card partner={partners[key][0]} />
+							</div>
+						{:else}
+							<div class="mx-auto mt-16 flex max-w-[62rem] items-start justify-between">
+								<div class="flex flex-col items-start gap-32">
+									{#each partners[key].filter((_, i) => i % 2 === 0) as partner}
+										<Card {partner} />
+									{/each}
+								</div>
+								<div class="mt-56 flex flex-col items-start gap-32">
+									{#each partners[key].filter((_, i) => i % 2 !== 0) as partner}
+										<Card {partner} />
+									{/each}
+								</div>
+							</div>
+						{/if}
 					</div>
-				{:else}
-					<div class="mx-auto mt-16 flex max-w-[62rem] items-start justify-between">
-						<div class="flex flex-col items-start gap-32">
-							{#each partners[key].filter((_, i) => i % 2 === 0) as partner}
+
+					<div class="sm:hidden">
+						<div class="mx-auto mt-9 flex max-w-[62rem] flex-col items-start justify-center gap-9">
+							{#each partners[key] as partner}
 								<Card {partner} />
 							{/each}
 						</div>
-						<div class="mt-56 flex flex-col items-start gap-32">
-							{#each partners[key].filter((_, i) => i % 2 !== 0) as partner}
-								<Card {partner} />
-							{/each}
-						</div>
 					</div>
-				{/if}
-			</div>
+				</div>
 
-			<img
-				src={shapes[key].image}
-				alt=""
-				class="absolute {shapes[key].position} aspect-[1.52/1] w-[25rem]"
-			/>
-		</section>
-	{/if}
-{/each}
+				<img
+					src={shapes[key].image}
+					alt=""
+					class="absolute {shapes[key].position} hidden aspect-[1.52/1] w-[25rem] sm:block"
+				/>
+			</section>
+		{/if}
+	{/each}
+</div>
