@@ -15,7 +15,9 @@
 </script>
 
 <div class="flex w-full shrink-0 flex-col items-start gap-4 sm:w-96">
-	<h3 class="font-black text-[2rem] leading-none tracking-tight sm:text-5xl">{partner.name}</h3>
+	<h3 class="font-black text-[2rem] leading-none tracking-tight sm:text-5xl">
+		{cleanText(partner.name)}
+	</h3>
 	<div class="overflow-hidden">
 		<img
 			use:parallaxImage
@@ -24,12 +26,12 @@
 			class="aspect-[1.33/1] w-full object-cover"
 		/>
 	</div>
-	<p class="leading-tight">{partner.description}</p>
+	<p class="leading-tight">{cleanText(partner.description)}</p>
 	<a
 		target="_black"
-		href={partner.link}
+		href={cleanText(partner.link)}
 		class="mt-3 px-6 py-4 font-black uppercase leading-none tracking-tight {themes[partner.type]}"
 	>
-		{partner.label}
+		{cleanText(partner.label)}
 	</a>
 </div>

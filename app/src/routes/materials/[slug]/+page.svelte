@@ -39,7 +39,7 @@
 <section class="overflow-hidden bg-white text-black">
 	<div class="padding-global py-9 sm:py-16">
 		<h1 class="max-w-[60rem] font-black text-2xl uppercase leading-none tracking-tight sm:text-5xl">
-			{material.name}
+			{cleanText(material.name)}
 		</h1>
 
 		<div
@@ -51,7 +51,7 @@
 						<img
 							use:parallaxImage
 							src={urlFor(image.image).url()}
-							alt={image.caption}
+							alt={cleanText(image.caption)}
 							class="h-full w-full object-cover"
 						/>
 					</div>
@@ -70,7 +70,7 @@
 					<div class="w-28 shrink-0 sm:w-36">Availibility:</div>
 					<div
 						class={twm(
-							'font-bold',
+							'font-black',
 							cleanText(material.availability) === 'In Stock'
 								? 'text-accent-four'
 								: 'text-black opacity-50'
@@ -111,13 +111,9 @@
 					Other Materials
 				</h1>
 				<div class="mt-9 grid grid-cols-2 gap-5 sm:mt-16">
-					{#if materials.length > 0}
-						{#each materials as material}
-							<Card {material} bg="bg-white" />
-						{/each}
-					{:else}
-						There is no material.
-					{/if}
+					{#each materials as material}
+						<Card {material} bg="bg-white" />
+					{/each}
 				</div>
 			</div>
 		</div>
