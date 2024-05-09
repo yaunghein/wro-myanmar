@@ -7,6 +7,8 @@
 	import { urlFor } from '$lib/sanity/image';
 	import type { HomePage } from '$lib/sanity/types';
 	import parallaxImage from '$lib/utils/parallaxImage';
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 	export let homePage: HomePage;
 
@@ -21,6 +23,17 @@
 				disableOnInteraction: false,
 				reverseDirection: true
 			}
+		});
+	};
+
+	const robotParallax = (image: HTMLImageElement) => {
+		gsap.registerPlugin(ScrollTrigger);
+		ScrollTrigger.create({
+			trigger: image,
+			start: 'top bottom',
+			end: 'bottom top',
+			scrub: 1.2,
+			animation: gsap.fromTo(image, { y: '60%' }, { y: '-50%' })
 		});
 	};
 </script>
@@ -83,8 +96,9 @@
 	</div>
 
 	<img
+		use:robotParallax
 		src="/images/wro-floating-robot-cropped.gif"
 		alt="WRO Floating Mascot"
-		class="pointer-events-none absolute -bottom-32 left-1/2 z-10 aspect-[0.72/1] w-[42vw] -translate-x-1/2 -scale-x-[1] sm:-bottom-24 sm:w-60"
+		class="pointer-events-none absolute -bottom-32 left-1/2 z-10 aspect-[0.72/1] w-[52vw] -translate-x-1/2 -scale-x-[1] sm:-bottom-24 sm:w-60"
 	/>
 </section>
