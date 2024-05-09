@@ -8,6 +8,6 @@ export default function (image: HTMLImageElement) {
 		start: 'top bottom',
 		end: 'bottom top',
 		scrub: 1,
-		animation: gsap.fromTo(image, { y: '-15%', scale: 1.25 }, { y: '15%', scale: 1.25 })
+		animation: gsap.fromTo(image, { y: '-15%', scale: 1.3 }, { y: '15%', scale: 1.3 })
 	});
 }

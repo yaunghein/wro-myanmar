@@ -16,7 +16,7 @@
 
 <div class="flex w-full shrink-0 flex-col items-start gap-4 sm:w-96">
 	<h3 class="font-black text-[2rem] leading-none tracking-tight sm:text-5xl">{partner.name}</h3>
-	<div class="overflow-hidden bg-red-500">
+	<div class="overflow-hidden">
 		<img
 			use:parallaxImage
 			src={urlFor(partner.image.image).url()}
