@@ -22,13 +22,13 @@
 
 <section class="relative">
 	<div class="padding-global">
-		<div class="flex items-center justify-center py-9 sm:py-40">
+		<div class="flex items-center justify-center py-16 sm:py-40">
 			<div class="mx-auto flex max-w-[32rem] flex-col gap-9">
 				<h2 class="sr-only">
 					{cleanText(homePage.categoryTitleOne)}
 					{cleanText(homePage.categoryTitleTwo)}
 				</h2>
-				<div class="mt-32 sm:mt-0">
+				<div>
 					<div
 						class="flex items-center justify-center gap-2 text-center sm:justify-start sm:text-left"
 					>
