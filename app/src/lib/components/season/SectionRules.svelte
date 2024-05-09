@@ -68,7 +68,7 @@
 							<h4
 								class="text-center font-black text-2xl uppercase leading-none tracking-tight sm:text-2.5xl"
 							>
-								{rule.title}
+								{cleanText(rule.title)}
 							</h4>
 							<div class="flex w-full flex-col gap-3 sm:w-auto">
 								{#each rule.rules as item}
@@ -77,7 +77,7 @@
 										href={item.pdf}
 										class="w-full bg-gradient-robomission px-4 py-4 text-center font-black text-sm uppercase leading-none tracking-tight text-black sm:w-80 sm:text-base"
 									>
-										{item.label}
+										{cleanText(item.label)}
 									</a>
 								{/each}
 							</div>

@@ -57,7 +57,7 @@
 							>
 								{item.label}:
 							</div>
-							<p class="leading-tight tracking-tight">{item.description}</p>
+							<p class="leading-tight tracking-tight">{cleanText(item.description)}</p>
 						</div>
 					{/each}
 				</div>
