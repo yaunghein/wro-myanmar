@@ -22,7 +22,9 @@
 						{cleanText(seasonPage.heroTitleGradient)}
 					</span>
 				</div>
-				<p class="my-9 text-2xl font-bold sm:my-12">{cleanText(seasonPage.heroSubTitle)}</p>
+				<p class="my-9 text-2xl font-bold leading-none sm:my-12">
+					{cleanText(seasonPage.heroSubTitle)}
+				</p>
 				<p class="max-w-[34rem] text-sm leading-tight sm:text-base">
 					{cleanText(seasonPage.heroSubDescription)}
 				</p>
