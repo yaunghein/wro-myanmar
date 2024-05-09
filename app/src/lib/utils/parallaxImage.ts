@@ -7,7 +7,7 @@ export default function (image: HTMLImageElement) {
 		trigger: image,
 		start: 'top bottom',
 		end: 'bottom top',
-		scrub: 1.2,
-		animation: gsap.fromTo(image, { y: '-5%', scale: 1 }, { y: '5%', scale: 1.1 })
+		scrub: 1,
+		animation: gsap.fromTo(image, { y: '-15%', scale: 1.25 }, { y: '15%', scale: 1.25 })
 	});
 }

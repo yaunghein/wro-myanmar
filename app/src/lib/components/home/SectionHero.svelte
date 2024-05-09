@@ -32,7 +32,7 @@
 			trigger: image,
 			start: 'top bottom',
 			end: 'bottom top',
-			scrub: 1.2,
+			scrub: 1,
 			animation: gsap.fromTo(image, { y: '60%' }, { y: '-50%' })
 		});
 	};
