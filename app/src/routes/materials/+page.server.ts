@@ -1,12 +1,20 @@
-import { materialsQuery as query, type Material } from '$lib/sanity/queries';
+import { materialsQuery, materialsPageQuery } from '$lib/sanity/queries';
+import type { Material, MaterialPage } from '$lib/sanity/types';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	const { loadQuery } = event.locals;
-	const initial = await loadQuery<Material[]>(query);
+	const initialMaterialsPage = await loadQuery<MaterialPage>(materialsPageQuery);
+	const initialMaterials = await loadQuery<Material[]>(materialsQuery);
 
 	return {
-		query,
-		options: { initial }
+		materialsPageQuery: {
+			query: materialsPageQuery,
+			options: { initial: initialMaterialsPage }
+		},
+		materialsQuery: {
+			query: materialsQuery,
+			options: { initial: initialMaterials }
+		}
 	};
 };

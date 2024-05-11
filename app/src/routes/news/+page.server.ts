@@ -1,5 +1,4 @@
-import { newsQuery, newsCountQuery, type News } from '$lib/sanity/queries';
-import { newsPageQuery } from '$lib/sanity/queries';
+import { newsQuery, newsCountQuery, newsPageQuery, type News } from '$lib/sanity/queries';
 import type { NewsPage } from '$lib/sanity/types';
 import type { PageServerLoad } from './$types';
 

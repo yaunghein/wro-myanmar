@@ -51,9 +51,9 @@
 </section>
 
 {#if news?.length === 0}
-	<div class="bg-off-white text-black">
+	<!-- <div class="bg-off-white text-black">
 		<Error text="I think we don’t have any other news." />
-	</div>
+	</div> -->
 {:else}
 	<section class="relative bg-off-white text-black">
 		<div class="padding-global">

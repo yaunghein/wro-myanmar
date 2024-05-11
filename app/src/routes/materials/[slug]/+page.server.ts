@@ -1,9 +1,9 @@
 import {
 	materialSingleQuery,
 	materialsOthersQuery,
-	type Material,
 	type MaterialSingle
 } from '$lib/sanity/queries';
+import { type Material } from '$lib/sanity/types';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {

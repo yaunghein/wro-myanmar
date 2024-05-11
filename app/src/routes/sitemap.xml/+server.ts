@@ -9,14 +9,12 @@ interface SitemapItem {
 }
 
 const prepare = <T extends SitemapItem>(collection: T[], priority: number) => {
-	return collection.map((item) => {
-		return {
-			path: `${item._type}/${item.slug?.current || ''}`,
-			lastmod: item._updatedAt,
-			frequency: 'daily',
-			priority
-		};
-	});
+	return collection.map((item) => ({
+		path: `${item._type}/${item.slug?.current || ''}`,
+		lastmod: item._updatedAt,
+		frequency: 'daily',
+		priority
+	}));
 };
 
 export const GET: RequestHandler = async (event) => {

@@ -11,6 +11,7 @@
 	import Swiper from 'swiper';
 	import { Autoplay } from 'swiper/modules';
 	import parallaxImage from '$lib/utils/parallaxImage';
+	import MetaData from '$lib/components/MetaData.svelte';
 
 	import 'swiper/css';
 
@@ -36,6 +37,14 @@
 	});
 </script>
 
+<MetaData
+	metaData={{
+		pageTitle: `${material.name} - WRO Myanmar`,
+		title: material.name,
+		description: '',
+		ogImage: material.images[0].image
+	}}
+/>
 <section class="overflow-hidden bg-white text-black">
 	<div class="padding-global py-9 sm:py-16">
 		<h1 class="max-w-[60rem] font-black text-2xl uppercase leading-none tracking-tight sm:text-5xl">
@@ -100,9 +109,9 @@
 </section>
 
 {#if materials?.length === 0}
-	<div class="bg-off-white text-black">
+	<!-- <div class="bg-off-white text-black">
 		<Error text="I think we don’t have any other materials." />
-	</div>
+	</div> -->
 {:else}
 	<section class="relative bg-off-white text-black">
 		<div class="padding-global">

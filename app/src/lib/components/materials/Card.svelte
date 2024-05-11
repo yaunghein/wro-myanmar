@@ -2,7 +2,7 @@
 	import { urlFor } from '$lib/sanity/image';
 	import { formatMMK, cleanText } from '$lib/utils';
 	import { twMerge as twm } from 'tailwind-merge';
-	import { type Material } from '$lib/sanity/queries';
+	import { type Material } from '$lib/sanity/types';
 	// import parallaxImage from '$lib/utils/parallaxImage';
 
 	export let material: Material;

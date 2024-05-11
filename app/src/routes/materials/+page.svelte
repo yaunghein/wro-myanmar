@@ -2,15 +2,21 @@
 	import { useQuery } from '@sanity/svelte-loader';
 	import Card from '$lib/components/materials/Card.svelte';
 	import Error from '$lib/components/Error.svelte';
+	import MetaData from '$lib/components/MetaData.svelte';
+	import { cleanText } from '$lib/utils';
 
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
 
-	$: q = useQuery(data);
+	$: qPage = useQuery(data.materialsPageQuery);
+	$: ({ data: materialsPage } = $qPage);
+
+	$: q = useQuery(data.materialsQuery);
 	$: ({ data: materials } = $q);
 </script>
 
+<MetaData metaData={materialsPage.metaData} />
 {#if materials?.length === 0}
 	<div class="bg-white text-black">
 		<Error text="I think we don’t have any materials." />
@@ -20,7 +26,7 @@
 		<div class="padding-global">
 			<div class="flex flex-col pb-9 pt-9 sm:pb-16 sm:pt-32">
 				<h1 class="font-black text-[2rem] uppercase leading-none tracking-tight sm:text-[4rem]">
-					Materials
+					{cleanText(materialsPage.title)}
 				</h1>
 				<div class="mt-9 grid grid-cols-1 gap-3 sm:mt-24 sm:grid-cols-2 sm:gap-5">
 					{#each materials as material}

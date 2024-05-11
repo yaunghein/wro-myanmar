@@ -120,6 +120,7 @@
 								class="wro-transition aspect-square w-5 hover:text-accent-100"
 							>
 								<Facebook />
+								<span class="sr-only">Facebook</span>
 							</a>
 							<a
 								target="_blank"
@@ -127,6 +128,7 @@
 								class="wro-transition pointer-events-none aspect-square w-5 opacity-50 hover:text-accent-100"
 							>
 								<Instagram />
+								<span class="sr-only">Instagram</span>
 							</a>
 							<a
 								target="_blank"
@@ -134,6 +136,7 @@
 								class="wro-transition pointer-events-none aspect-square w-5 opacity-50 hover:text-accent-100"
 							>
 								<LinkedIn />
+								<span class="sr-only">LinkedIn</span>
 							</a>
 						</div>
 					</div>
