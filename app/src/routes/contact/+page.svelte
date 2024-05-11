@@ -10,8 +10,13 @@
 
 	$: q = useQuery(data);
 	$: ({ data: contactPage } = $q);
+
+	import type { JoinUsPage } from '$lib/sanity/types';
+
+	$: jq = useQuery<JoinUsPage>({ query: data.joinUsPageQuery, options: data.joinUsOptions });
+	$: ({ data: joinUsPage } = $jq);
 </script>
 
 <MetaData metaData={contactPage.metaData} />
 <SectionGeneralForm {contactPage} />
-<SectionJumbotron />
+<SectionJumbotron {joinUsPage} />

@@ -135,3 +135,5 @@ export const contactPageQuery = groq`*[_type == "contactPage" && isActive][0]`;
 export const newsPageQuery = groq`*[_type == "newsPage" && isActive][0]`;
 
 export const materialsPageQuery = groq`*[_type == "materialPage" && isActive][0]`;
+
+export const joinUsPageQuery = groq`*[_type == "joinUsPage" && isActive][0]`;

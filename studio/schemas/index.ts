@@ -15,6 +15,7 @@ import seasonPage from './pageSeason'
 import contactPage from './pageContact'
 import newsPage from './pageNews'
 import materialPage from './pageMaterial'
+import joinUsPage from './pageJoinUs'
 
 export const schemaTypes = [
   blockContent,
@@ -34,4 +35,5 @@ export const schemaTypes = [
   contactPage,
   newsPage,
   materialPage,
+  joinUsPage,
 ]

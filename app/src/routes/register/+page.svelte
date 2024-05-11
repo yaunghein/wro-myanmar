@@ -2,15 +2,13 @@
 	import { useQuery } from '@sanity/svelte-loader';
 	import SectionRegisterForm from '$lib/components/contact/SectionRegisterForm.svelte';
 	import SectionJumbotron from '$lib/components/contact/SectionJumbotron.svelte';
-	// import MetaData from '$lib/components/MetaData.svelte';
+	import type { JoinUsPage } from '$lib/sanity/types';
 
-	import type { PageServerData } from './$types';
+	export let data: any;
 
-	export let data: PageServerData;
-
-	$: q = useQuery(data);
-	$: ({ data: contactPage } = $q);
+	$: q = useQuery<JoinUsPage>({ query: data.joinUsPageQuery, options: data.joinUsOptions });
+	$: ({ data: joinUsPage } = $q);
 </script>
 
 <SectionRegisterForm />
-<SectionJumbotron />
+<SectionJumbotron {joinUsPage} />

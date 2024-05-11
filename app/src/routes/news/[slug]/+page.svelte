@@ -2,6 +2,7 @@
 	import { useQuery } from '@sanity/svelte-loader';
 	import { PortableText } from '@portabletext/svelte';
 	import { formatDate } from '$lib/utils';
+	import { cleanText } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import Card from '$lib/components/news/Card.svelte';
 	import MetaData from '$lib/components/MetaData.svelte';
@@ -31,7 +32,7 @@
 <section class="bg-white text-black">
 	<div class="padding-global py-9 sm:py-16">
 		<h1 class="font-black text-2xl uppercase leading-none tracking-tight sm:text-5xl">
-			{singleNews.title}
+			{cleanText(singleNews.title)}
 		</h1>
 		<div class="mt-6 text-xs sm:mt-9 sm:text-base">{formatDate(singleNews._createdAt)}</div>
 		<div class="my-3 h-[1px] w-full bg-off-white sm:my-6" />
@@ -39,7 +40,7 @@
 			<img
 				use:parallaxImage
 				src={urlFor(mainImage).url()}
-				alt="Cover image for {singleNews.title}"
+				alt="Cover image for {cleanText(singleNews.title)}"
 				class="aspect-[4/3] w-full object-cover sm:aspect-[2.4/1]"
 			/>
 		</div>

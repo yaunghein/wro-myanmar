@@ -1,7 +1,14 @@
 <script lang="ts">
+	import { cleanText } from '$lib/utils';
+	import { PortableText } from '@portabletext/svelte';
+	import { urlFor } from '$lib/sanity/image';
 	import parallaxImage from '$lib/utils/parallaxImage';
+	import type {JoinUsPage} from "$lib/sanity/types"
+
+	export let joinUsPage: JoinUsPage | undefined
 </script>
 
+{#if joinUsPage}
 <section class="bg-white text-black">
 	<div class="flex flex-col gap-0 py-0 sm:gap-16 sm:py-16">
 		<div class="relative grid grid-cols-1 items-center sm:grid-cols-2">
@@ -9,29 +16,23 @@
 				<h2
 					class="bg-gradient-primary bg-clip-text text-center font-black text-[2rem] uppercase leading-none tracking-tight text-transparent sm:text-left sm:text-5xl"
 				>
-					Register for Our Competition
+					{cleanText(joinUsPage.registerTitle)}
 				</h2>
-				<div class="mb-2 flex flex-col gap-6">
-					<p class="text-center text-sm leading-tight sm:text-left sm:text-base">
-						Participate in the World Robot Olympiad, an international Competition fostering
-						technology and Innovation for students aged 8-19 as a Myanmar representative.
-					</p>
-					<p class="text-center text-sm leading-tight sm:text-left sm:text-base">
-						Registration Fees: 60 USD per Student for all categories.
-					</p>
+				<div class="mb-2 flex flex-col gap-6 text-center text-sm leading-tight sm:text-left sm:text-base">
+					<PortableText components={{}} value={joinUsPage.registerDescription} />
 				</div>
 				<a
 					href="/register"
 					class="w-full bg-gradient-primary px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto"
 				>
-					REGISTER NOW
+					{cleanText(joinUsPage.registerBtn)}
 				</a>
 			</div>
 			<div class="">
 				<div class="overflow-hidden sm:pr-[7.5rem]">
 					<img
 						use:parallaxImage
-						src="/images/contact-register.webp"
+						src={urlFor(joinUsPage.registerImage).url()}
 						alt=""
 						class="aspect-square w-full object-cover"
 					/>
@@ -50,7 +51,7 @@
 				<div class="overflow-hidden sm:pl-[7.5rem]">
 					<img
 						use:parallaxImage
-						src="/images/contact-join.webp"
+						src={urlFor(joinUsPage.partnerImage).url()}
 						alt=""
 						class="aspect-square w-full object-cover"
 					/>
@@ -60,25 +61,21 @@
 				<h2
 					class="bg-gradient-robomission bg-clip-text text-center font-black text-[2rem] uppercase leading-none tracking-tight text-transparent sm:text-left sm:text-5xl"
 				>
-					Join as Our Partner
+				{cleanText(joinUsPage.partnerTitle)}
 				</h2>
-				<div class="mb-2 flex flex-col gap-6">
-					<p class="text-center text-sm leading-tight sm:text-left sm:text-base">
-						Be a part of the technological movement as a school or an educator. Our annual school
-						membership offers a wide range of varieties to make your school network expand in this
-						growth era!
-					</p>
+				<div class="mb-2 flex flex-col gap-6 text-center text-sm leading-tight sm:text-left sm:text-base">
+					<PortableText components={{}} value={joinUsPage.partnerDescription} />
 				</div>
 				<a
 					href="/join-as-partner"
 					class="w-full bg-gradient-robomission px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-black sm:w-auto"
 				>
-					JOIN NOW
+				{cleanText(joinUsPage.partnerBtn)}
 				</a>
 			</div>
 
 			<img
-				src="/images/contact-shape-join-one.webp"
+			src="/images/contact-shape-join-one.webp"
 				alt=""
 				class="absolute -top-10 right-0 hidden aspect-[3.18/1] w-[16.7rem] sm:block"
 			/>
@@ -94,26 +91,23 @@
 				<h2
 					class="bg-accent-three bg-clip-text text-center font-black text-[2rem] uppercase leading-none tracking-tight text-transparent sm:text-left sm:text-5xl"
 				>
-					Sponsorship Contact
+				{cleanText(joinUsPage.sponsorTitle)}
 				</h2>
-				<div class="mb-2 flex flex-col gap-6">
-					<p class="text-center text-sm leading-tight sm:text-left sm:text-base">
-						Help enable youths of Myanmar to reach a global stage in technological education. We are
-						looking for opportunities to share this movement with those who have the same mission!
-					</p>
+				<div class="mb-2 flex flex-col gap-6 text-center text-sm leading-tight sm:text-left sm:text-base">
+					<PortableText components={{}} value={joinUsPage.sponsorDescription} />
 				</div>
 				<a
 					href="/sponsorship"
 					class="w-full bg-accent-three px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto"
 				>
-					Contact us
+				{cleanText(joinUsPage.sponsorBtn)}
 				</a>
 			</div>
 			<div>
 				<div class="overflow-hidden sm:pr-[7.5rem]">
 					<img
 						use:parallaxImage
-						src="/images/contact-sponsor.webp"
+						src={urlFor(joinUsPage.sponsorImage).url()}
 						alt=""
 						class="aspect-square w-full object-cover"
 					/>
@@ -128,3 +122,4 @@
 		</div>
 	</div>
 </section>
+{/if}
