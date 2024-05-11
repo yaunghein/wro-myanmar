@@ -1,17 +1,17 @@
 import { newsAllQuery, materialsQuery } from '$lib/sanity/queries';
-import type { News, Material } from '$lib/sanity/queries';
+import type { News, Material } from '$lib/sanity/types';
 import type { RequestHandler } from './$types';
 
 interface SitemapItem {
 	_type: string;
-	slug: { current: string };
 	_updatedAt: string;
+	slug?: { current?: string };
 }
 
 const prepare = <T extends SitemapItem>(collection: T[], priority: number) => {
 	return collection.map((item) => {
 		return {
-			path: `${item._type}/${item.slug.current}`,
+			path: `${item._type}/${item.slug?.current || ''}`,
 			lastmod: item._updatedAt,
 			frequency: 'daily',
 			priority
@@ -24,8 +24,8 @@ export const GET: RequestHandler = async (event) => {
 	const { data: newsData } = await loadQuery<News[]>(newsAllQuery);
 	const { data: materialsData } = await loadQuery<Material[]>(materialsQuery);
 
-	const news = prepare<News>(newsData, 1);
-	const materials = prepare<Material>(materialsData, 0.5);
+	const news = prepare(newsData, 1);
+	const materials = prepare(materialsData, 0.5);
 	const pages = [
 		{ path: '', lastmod: new Date().toISOString(), frequency: 'monthly', priority: 1 },
 		{ path: 'season-2024', lastmod: new Date().toISOString(), frequency: 'monthly', priority: 1 },
@@ -50,7 +50,7 @@ export const GET: RequestHandler = async (event) => {
 				.map((entry) => {
 					return `
 	            <url>
-	                <loc>https://www.wro-mm.com/${entry.path}</loc>
+	                <loc>${event.url.origin}/${entry.path}</loc>
 	                <lastmod>${entry.lastmod}</lastmod>
 	                <changefreq>${entry.frequency}</changefreq>
 	                <priority>${entry.priority}</priority>
