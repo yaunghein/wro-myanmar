@@ -10,7 +10,7 @@
 </script>
 
 <div class="group flex flex-col {bg} p-3">
-	<div class="mb-3 overflow-hidden">
+	<div class="mb-3 overflow-hidden bg-white">
 		<img
 			use:parallaxImage
 			src={urlFor(material.image.image).url()}

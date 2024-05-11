@@ -42,22 +42,16 @@
 						</div>
 						<div class="flex flex-col gap-2">
 							<a
-								href="/"
-								class="wro-transition whitespace-nowrap text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
-							>
-								Overview Categories
-							</a>
-							<a
-								href="/"
+								href="/season-2024"
 								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
 							>
 								2024 Season
 							</a>
 							<a
-								href="/"
+								href="/register"
 								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
 							>
-								FAQ about Rules
+								Register Now
 							</a>
 						</div>
 					</div>
@@ -67,10 +61,16 @@
 						</div>
 						<div class="flex flex-col gap-2">
 							<a
-								href="/"
+								href="/materials"
 								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
 							>
 								Materials
+							</a>
+							<a
+								href="/news"
+								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+							>
+								News
 							</a>
 						</div>
 					</div>
@@ -80,22 +80,28 @@
 						</div>
 						<div class="flex flex-col gap-2">
 							<a
-								href="/"
+								href="/contact"
 								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
 							>
-								Contact
+								General Inquiry
 							</a>
 							<a
-								href="/"
-								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								href="/register"
+								class="wro-transition whitespace-nowrap text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
 							>
-								News
+								Register for Competition
 							</a>
 							<a
-								href="/"
+								href="/join-as-patner"
 								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
 							>
-								Privacy Policy
+								Join as Our Partner
+							</a>
+							<a
+								href="/sponsorship"
+								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+							>
+								Sponsorship
 							</a>
 						</div>
 					</div>
@@ -106,13 +112,25 @@
 							SOCIAL MEDIA
 						</div>
 						<div class="flex gap-5">
-							<a href="/" class="wro-transition aspect-square w-5 hover:text-accent-100">
+							<a
+								target="_blank"
+								href="https://www.facebook.com/profile.php?id=61557750792097"
+								class="wro-transition aspect-square w-5 hover:text-accent-100"
+							>
 								<Facebook />
 							</a>
-							<a href="/" class="wro-transition aspect-square w-5 hover:text-accent-100">
+							<a
+								target="_blank"
+								href="/"
+								class="wro-transition pointer-events-none aspect-square w-5 opacity-50 hover:text-accent-100"
+							>
 								<Instagram />
 							</a>
-							<a href="/" class="wro-transition aspect-square w-5 hover:text-accent-100">
+							<a
+								target="_blank"
+								href="/"
+								class="wro-transition pointer-events-none aspect-square w-5 opacity-50 hover:text-accent-100"
+							>
 								<LinkedIn />
 							</a>
 						</div>
