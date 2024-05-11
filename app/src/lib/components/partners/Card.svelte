@@ -2,7 +2,7 @@
 	import { urlFor } from '$lib/sanity/image';
 	import { cleanText } from '$lib/utils';
 	import type { Partner } from '$lib/sanity/queries';
-	import parallaxImage from '$lib/utils/parallaxImage';
+	// import parallaxImage from '$lib/utils/parallaxImage';
 
 	export let partner: Partner;
 
@@ -20,7 +20,6 @@
 	</h3>
 	<div class="overflow-hidden">
 		<img
-			use:parallaxImage
 			src={urlFor(partner.image.image).url()}
 			alt={cleanText(partner.image.caption)}
 			class="aspect-[1.33/1] w-full object-cover"

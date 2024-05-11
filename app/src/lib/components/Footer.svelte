@@ -22,18 +22,20 @@
 
 			<div class="flex grow flex-col gap-9 pb-9 sm:gap-14">
 				<div
-					class="mt-9 flex flex-col items-start justify-start gap-[1.75rem] sm:mt-0 sm:flex-row sm:gap-20"
+					class="mt-9 flex flex-col items-start justify-start gap-[1.75rem] sm:mt-0 sm:flex-row sm:justify-between sm:gap-12"
 				>
-					<div>
+					<div class="w-40 sm:w-32">
 						<div class="mb-3 font-black text-sm leading-tight tracking-tight sm:mb-6 sm:text-base">
 							ADDRESS
 						</div>
 						<div class="flex flex-col gap-2">
-							<p
+							<a
+								target="_blank"
+								href="https://maps.app.goo.gl/DNHLkZg6b82xg6XY9"
 								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
 							>
-								Coming soon Myanmar
-							</p>
+								Shophouse No.215, Times City, Kamayut, Yangon, Myanmar.
+							</a>
 						</div>
 					</div>
 					<div>
@@ -92,7 +94,7 @@
 								Register for Competition
 							</a>
 							<a
-								href="/join-as-patner"
+								href="/join-as-partner"
 								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
 							>
 								Join as Our Partner
@@ -114,7 +116,7 @@
 						<div class="flex gap-5">
 							<a
 								target="_blank"
-								href="https://www.facebook.com/profile.php?id=61557750792097"
+								href="https://www.facebook.com/profile.php?id=61557750792097&mibextid=LQQJ4d"
 								class="wro-transition aspect-square w-5 hover:text-accent-100"
 							>
 								<Facebook />

@@ -9,14 +9,17 @@
 				<h2
 					class="bg-gradient-primary bg-clip-text text-center font-black text-[2rem] uppercase leading-none tracking-tight text-transparent sm:text-left sm:text-5xl"
 				>
-					Register for our competition
+					Register for Our Competition
 				</h2>
-				<p class="mb-2 text-center text-sm leading-tight sm:text-left sm:text-base">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Lacus viverra vitae congue eu consequat ac felis.
-					Adipiscing bibendum est ultricies integer quis auctor. Turpis nunc eget lorem dolor sed
-					viverra ipsum. Consequat id porta nibh venenatis cras sed felis.
-				</p>
+				<div class="mb-2 flex flex-col gap-6">
+					<p class="text-center text-sm leading-tight sm:text-left sm:text-base">
+						Participate in the World Robot Olympiad, an international Competition fostering
+						technology and Innovation for students aged 8-19 as a Myanmar representative.
+					</p>
+					<p class="text-center text-sm leading-tight sm:text-left sm:text-base">
+						Registration Fees: 60 USD per Student for all categories.
+					</p>
+				</div>
 				<a
 					href="/register"
 					class="w-full bg-gradient-primary px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto"
@@ -57,14 +60,15 @@
 				<h2
 					class="bg-gradient-robomission bg-clip-text text-center font-black text-[2rem] uppercase leading-none tracking-tight text-transparent sm:text-left sm:text-5xl"
 				>
-					Join as our Partner
+					Join as Our Partner
 				</h2>
-				<p class="mb-2 text-center text-sm leading-tight sm:text-left sm:text-base">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Lacus viverra vitae congue eu consequat ac felis.
-					Adipiscing bibendum est ultricies integer quis auctor. Turpis nunc eget lorem dolor sed
-					viverra ipsum. Consequat id porta nibh venenatis cras sed felis.
-				</p>
+				<div class="mb-2 flex flex-col gap-6">
+					<p class="text-center text-sm leading-tight sm:text-left sm:text-base">
+						Be a part of the technological movement as a school or an educator. Our annual school
+						membership offers a wide range of varieties to make your school network expand in this
+						growth era!
+					</p>
+				</div>
 				<a
 					href="/join-as-partner"
 					class="w-full bg-gradient-robomission px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-black sm:w-auto"
@@ -92,12 +96,12 @@
 				>
 					Sponsorship Contact
 				</h2>
-				<p class="mb-2 text-center text-sm leading-tight sm:text-left sm:text-base">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Lacus viverra vitae congue eu consequat ac felis.
-					Adipiscing bibendum est ultricies integer quis auctor. Turpis nunc eget lorem dolor sed
-					viverra ipsum. Consequat id porta nibh venenatis cras sed felis.
-				</p>
+				<div class="mb-2 flex flex-col gap-6">
+					<p class="text-center text-sm leading-tight sm:text-left sm:text-base">
+						Help enable youths of Myanmar to reach a global stage in technological education. We are
+						looking for opportunities to share this movement with those who have the same mission!
+					</p>
+				</div>
 				<a
 					href="/sponsorship"
 					class="w-full bg-accent-three px-6 py-4 text-center font-black uppercase leading-none tracking-tight text-white sm:w-auto"
