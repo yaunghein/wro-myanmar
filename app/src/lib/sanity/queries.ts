@@ -4,8 +4,9 @@ import groq from 'groq';
 
 // replace types in this file with generated types
 export interface News {
-	_type: 'post';
+	_type: 'news';
 	_createdAt: string;
+	_updatedAt: string;
 	title: string;
 	slug: Slug;
 	excerpt: string;
@@ -14,6 +15,16 @@ export interface News {
 }
 
 export const newsCountQuery = groq`count(*[_type == "news" && defined(slug.current)])`;
+
+export const newsAllQuery = groq`*[_type == "news" && defined(slug.current)] | order(_createdAt desc) {
+	_type,
+	_createdAt,
+	_updatedAt,
+	title,
+	slug,
+	excerpt,
+	mainImage
+}`;
 
 export const newsQuery = groq`*[_type == "news" && defined(slug.current)] | order(_createdAt desc) {
 	_createdAt,
@@ -47,6 +58,7 @@ export interface CustomImage {
 export interface Material {
 	_type: 'material';
 	_createdAt: string;
+	_updatedAt: string;
 	name: string;
 	slug: Slug;
 	image: CustomImage;
@@ -65,7 +77,9 @@ export interface MaterialSingle {
 }
 
 export const materialsQuery = groq`*[_type == "material" && defined(slug.current)] | order(_createdAt desc) {
+	_type,
 	_createdAt,
+	_updatedAt,
 	name,
 	slug,
 	"image": images[0],

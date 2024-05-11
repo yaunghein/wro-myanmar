@@ -191,7 +191,6 @@ export type Material = {
   _rev: string;
   name?: string;
   slug?: Slug;
-  number?: string;
   images?: Array<{
     _key: string;
   } & CustomImage>;

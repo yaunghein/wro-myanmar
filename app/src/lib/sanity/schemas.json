@@ -1161,13 +1161,6 @@
         },
         "optional": true
       },
-      "number": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
       "images": {
         "type": "objectAttribute",
         "value": {
