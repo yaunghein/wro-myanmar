@@ -76,7 +76,7 @@
 					{#each items as item}
 						<div class="flex gap-1">
 							<div
-								class="shrink-0 bg-gradient-robomission bg-clip-text leading-tight tracking-tight text-transparent"
+								class="shrink-0 bg-gradient-robomission bg-clip-text font-bold leading-tight tracking-tight text-transparent"
 							>
 								{cleanText(item.label)}:
 							</div>

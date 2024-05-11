@@ -53,7 +53,7 @@
 					{#each items as item}
 						<div class="flex gap-1">
 							<div
-								class="shrink-0 bg-gradient-future bg-clip-text leading-tight tracking-tight text-transparent"
+								class="shrink-0 bg-gradient-future bg-clip-text font-bold leading-tight tracking-tight text-transparent"
 							>
 								{item.label}:
 							</div>
