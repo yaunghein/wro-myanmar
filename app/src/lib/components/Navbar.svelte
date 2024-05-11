@@ -61,7 +61,7 @@
 <header class="sticky top-0 z-20 bg-brand">
 	<div class="padding-global relative z-10 bg-brand">
 		<div class="flex items-center justify-between py-8">
-			<a on:click={() => menuTl?.reverse()} href="/">
+			<a on:click={() => menuTl?.reverse()} href="/" class="shrink-0">
 				<span class="sr-only">Go Home</span>
 				<img src="/images/logo.webp" alt="WRO Myanmar Logo" class="h-6 w-28 sm:h-12 sm:w-52" />
 			</a>
@@ -169,7 +169,13 @@
 						class="wro-transition absolute inset-0 top-auto h-[0.1rem] w-full bg-accent-100 opacity-0 group-hover:opacity-100"
 					/>
 				</a>
-				<div
+				<a
+					href="/register"
+					class="w-full bg-gradient-primary px-6 py-3 text-center font-black text-sm uppercase leading-none tracking-tight text-white sm:w-auto sm:text-base"
+				>
+					Join Us
+				</a>
+				<!-- <div
 					role="region"
 					class="relative"
 					on:mouseenter={() => (isContactOpen = true)}
@@ -260,9 +266,8 @@
 							</div>
 						</div>
 					{/if}
-				</div>
+				</div> -->
 			</nav>
-
 			<button id="mobile-menu-trigger" class="leading-tight sm:hidden">Menu</button>
 		</div>
 	</div>
@@ -430,13 +435,15 @@
 				</div>
 			</div>
 
-			<a
-				on:click={() => menuTl?.reverse()}
-				href="/register"
-				class="mobile-menu-link wro-transition padding-global group relative block border-b border-white border-opacity-25 py-4 leading-tight"
-			>
-				<span>Register Now</span>
-			</a>
+			<div class="padding-global mt-9">
+				<a
+					on:click={() => menuTl?.reverse()}
+					href="/register"
+					class="mobile-menu-link wro-transition padding-global group relative block bg-gradient-primary py-4 text-center leading-tight"
+				>
+					<span class="font-black uppercase">Join Us</span>
+				</a>
+			</div>
 		</div>
 
 		<div class="mobile-menu-pattern fixed bottom-0 left-0 w-0 overflow-hidden bg-brand">
