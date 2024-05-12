@@ -3,6 +3,7 @@
 	import Success from './Success.svelte';
 	import getSponsorSenderEmailTemplate from '$lib/utils/email/sponsor/sender';
 	import getSponsorWroEmailTemplate from '$lib/utils/email/sponsor/wro';
+	import { PUBLIC_SPONSOR_EMAIL } from '$env/static/public';
 	// import { cleanText } from '$lib/utils';
 	// import type { ContactPage } from '$lib/sanity/types';
 	// export let contactPage: ContactPage;
@@ -44,7 +45,7 @@
 				body: JSON.stringify({
 					subject: `Sponsorship: ${formData.name}`,
 					sender: { name: formData.name, email: formData.email },
-					to: [{ name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' }],
+					to: [{ name: 'WRO Myanmar', email: PUBLIC_SPONSOR_EMAIL }],
 					htmlContent: getSponsorWroEmailTemplate(formData)
 				})
 			});
@@ -57,7 +58,7 @@
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
 					subject: `Sponsorship Submission from ${formData.name} Received.`,
-					sender: { name: 'WRO Myanmar', email: 'wrowebsite@gmail.com' },
+					sender: { name: 'WRO Myanmar', email: PUBLIC_SPONSOR_EMAIL },
 					to: [{ name: formData.name, email: formData.email }],
 					htmlContent: getSponsorSenderEmailTemplate(formData.name)
 				})

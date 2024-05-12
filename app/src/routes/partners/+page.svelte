@@ -37,6 +37,9 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Partners - WRO Myanmar</title>
+</svelte:head>
 <h1 class="sr-only">Partners</h1>
 <div class="flex flex-col gap-16 bg-white py-14 text-black sm:block sm:py-0">
 	{#each Object.keys(partners) as key}
