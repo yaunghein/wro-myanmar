@@ -29,7 +29,9 @@
 	<a
 		target="_black"
 		href={cleanText(partner.link)}
-		class="mt-3 px-6 py-4 font-black uppercase leading-none tracking-tight {themes[partner.type]}"
+		class="mt-3 w-full px-6 py-4 text-center font-black uppercase leading-none tracking-tight sm:w-auto {themes[
+			partner.type
+		]}"
 	>
 		{cleanText(partner.label)}
 	</a>
