@@ -110,6 +110,7 @@ export interface Partner {
 	_createdAt: string;
 	name: string;
 	type: 'premium' | 'gold' | 'silver' | 'school';
+	sponsor: string;
 	image: CustomImage;
 	description: string;
 	link: string;
@@ -120,6 +121,7 @@ export const partnersQuery = groq`*[_type == "partner"] | order(_createdAt desc)
 	_createdAt,
 	name,
 	type,
+	sponsor,
 	image,
 	description,
 	link,

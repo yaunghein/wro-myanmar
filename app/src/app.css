@@ -81,3 +81,7 @@ input:-webkit-autofill:active {
 .wro-transition {
 	@apply transition-all duration-500 ease-out;
 }
+
+.swiper-free-mode > .swiper-wrapper {
+	transition-timing-function: linear !important;
+}
