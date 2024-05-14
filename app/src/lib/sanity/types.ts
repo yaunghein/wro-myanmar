@@ -279,6 +279,7 @@ export type Partner = {
   _rev: string;
   name?: string;
   type?: "premium" | "gold" | "silver" | "school";
+  sponsor?: string;
   image?: CustomImage;
   description?: string;
   link?: string;

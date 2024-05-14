@@ -27,7 +27,7 @@
 			partner.type
 		].color}"
 	>
-		Venue sponsor
+		{cleanText(partner.sponsor)}
 	</div>
 
 	<div class="-mb-3 -mt-[1.1rem] h-[1px] w-full shrink-0 sm:-mt-[1.35rem] {themes[partner.type]}" />

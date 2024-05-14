@@ -25,6 +25,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'sponsor',
+      title: 'Sponsor',
+      type: 'string',
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'customImage',
