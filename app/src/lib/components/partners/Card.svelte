@@ -25,12 +25,16 @@
 	<div
 		class="font-black text-sm uppercase leading-none tracking-tight sm:text-base {sponsorTextThemes[
 			partner.type
-		].color}"
+		].color} {!partner.sponsor ? 'opacity-0' : ''}"
 	>
-		{cleanText(partner.sponsor)}
+		{cleanText(partner.sponsor || '')}
 	</div>
 
-	<div class="-mb-3 -mt-[1.1rem] h-[1px] w-full shrink-0 sm:-mt-[1.35rem] {themes[partner.type]}" />
+	<div
+		class="-mb-3 -mt-[1.1rem] h-[1px] w-full shrink-0 sm:-mt-[1.35rem] {themes[
+			partner.type
+		]} {!partner.sponsor ? 'opacity-0' : ''}"
+	/>
 
 	<div class="aspect-[1.33/1] w-full overflow-hidden bg-off-white">
 		<img
