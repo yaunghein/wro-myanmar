@@ -3,6 +3,7 @@
 	import { cleanText } from '$lib/utils';
 	import type { SeasonPage, Event } from '$lib/sanity/types';
 	import { twMerge as twm } from 'tailwind-merge';
+	import { PortableText } from '@portabletext/svelte';
 
 	export let seasonPage: SeasonPage;
 
@@ -76,8 +77,8 @@
 					</div>
 				</div>
 
-				<p class="max-w-[30rem] text-center text-sm leading-tight sm:text-base">
-					{cleanText(seasonPage.seasonDescription)}
+				<p class="rich-text max-w-[30rem] text-center text-sm leading-tight sm:text-base">
+					<PortableText components={{}} value={seasonPage.seasonDescription} />
 				</p>
 
 				<a

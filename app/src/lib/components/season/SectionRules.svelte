@@ -2,6 +2,7 @@
 	import { cleanText } from '$lib/utils';
 	import { urlForPDF } from '$lib/sanity/pdf';
 	import type { SeasonPage } from '$lib/sanity/types';
+	import { PortableText } from '@portabletext/svelte';
 
 	export let seasonPage: SeasonPage;
 
@@ -40,8 +41,8 @@
 					{cleanText(seasonPage.ruleTitle)}
 				</h2>
 
-				<p class="max-w-[33rem] text-center text-sm leading-tight sm:text-base">
-					{cleanText(seasonPage.ruleDescription)}
+				<p class="rich-text max-w-[33rem] text-center text-sm leading-tight sm:text-base">
+					<PortableText components={{}} value={seasonPage.ruleDescription} />
 				</p>
 			</div>
 

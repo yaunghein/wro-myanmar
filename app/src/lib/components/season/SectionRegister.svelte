@@ -3,6 +3,7 @@
 	import { urlFor } from '$lib/sanity/image';
 	import type { SeasonPage } from '$lib/sanity/types';
 	import parallaxImage from '$lib/utils/parallaxImage';
+	import { PortableText } from '@portabletext/svelte';
 
 	export let seasonPage: SeasonPage;
 </script>
@@ -20,8 +21,8 @@
 			>
 				{cleanText(seasonPage.registerTitle)}
 			</h2>
-			<p class="text-center text-sm leading-tight sm:mb-2 sm:text-left sm:text-base">
-				{cleanText(seasonPage.registerDescription)}
+			<p class="rich-text text-center text-sm leading-tight sm:mb-2 sm:text-left sm:text-base">
+				<PortableText components={{}} value={seasonPage.registerDescription} />
 			</p>
 			<a
 				href="/register"

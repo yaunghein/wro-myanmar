@@ -45,7 +45,7 @@
 			/>
 		</div>
 
-		<div class="mx-auto max-w-[50rem] text-sm leading-tight sm:text-base">
+		<div class="rich-text mx-auto max-w-[50rem]">
 			<PortableText components={{}} value={singleNews.body} />
 		</div>
 	</div>

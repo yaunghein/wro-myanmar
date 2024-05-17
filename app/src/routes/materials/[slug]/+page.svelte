@@ -70,7 +70,7 @@
 
 		<div class="mx-auto grid max-w-[36rem] gap-6">
 			<h3 class="font-black text-sm uppercase sm:text-2xl">description</h3>
-			<div class="-mt-3 text-sm leading-tight sm:mt-0 sm:text-base">
+			<div class="rich-text -mt-3 text-sm leading-tight sm:mt-0 sm:text-base">
 				<PortableText components={{}} value={material.description} />
 			</div>
 

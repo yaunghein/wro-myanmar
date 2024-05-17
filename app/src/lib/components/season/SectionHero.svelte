@@ -2,6 +2,7 @@
 	import { urlFor } from '$lib/sanity/image';
 	import { cleanText } from '$lib/utils';
 	import type { SeasonPage } from '$lib/sanity/types';
+	import { PortableText } from '@portabletext/svelte';
 
 	export let seasonPage: SeasonPage;
 </script>
@@ -25,8 +26,8 @@
 				<p class="my-9 text-2xl font-bold leading-none sm:my-12">
 					{cleanText(seasonPage.heroSubTitle)}
 				</p>
-				<p class="max-w-[34rem] text-sm leading-tight sm:text-base">
-					{cleanText(seasonPage.heroSubDescription)}
+				<p class="rich-text max-w-[34rem] text-sm leading-tight sm:text-base">
+					<PortableText components={{}} value={seasonPage.heroSubDescription} />
 				</p>
 			</div>
 

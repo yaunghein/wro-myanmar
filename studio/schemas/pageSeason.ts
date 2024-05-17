@@ -33,7 +33,7 @@ export default defineType({
     defineField({
       name: 'heroSubDescription',
       title: 'Hero Sub Description',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'heroImage',
@@ -73,7 +73,7 @@ export default defineType({
     defineField({
       name: 'seasonDescription',
       title: 'Season Description',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'seasonBtnLabel',
@@ -110,7 +110,7 @@ export default defineType({
     defineField({
       name: 'ruleDescription',
       title: 'Rule Description',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'roboRules',
@@ -130,7 +130,7 @@ export default defineType({
     defineField({
       name: 'registerDescription',
       title: 'Register Description',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'registerBtnLabel',

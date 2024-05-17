@@ -2,8 +2,7 @@
 	import { urlFor } from '$lib/sanity/image';
 	import { cleanText } from '$lib/utils';
 	import type { Partner } from '$lib/sanity/queries';
-	// import parallaxImage from '$lib/utils/parallaxImage';
-
+	import { PortableText } from '@portabletext/svelte';
 	export let partner: Partner;
 
 	const themes = {
@@ -46,7 +45,9 @@
 	<h3 class="font-black text-2xl uppercase leading-none tracking-tight sm:text-[1.75rem]">
 		{cleanText(partner.name)}
 	</h3>
-	<p class="mb-3 text-sm leading-tight sm:text-base">{cleanText(partner.description)}</p>
+	<p class="mb-3 text-sm leading-tight sm:text-base">
+		<PortableText components={{}} value={partner.description} />
+	</p>
 	<a
 		target="_black"
 		href={cleanText(partner.link)}

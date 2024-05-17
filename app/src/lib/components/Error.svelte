@@ -16,8 +16,8 @@
 			</div>
 			{#if error}
 				<p class="max-w-[27rem] leading-tight">
-					Please contact at <a class="font-bold underline" href="mailto:hi@wromyanmar.com">
-						hi@wromyanmar.com
+					Please contact at <a class="font-bold underline" href="mailto:wrowebsite@gmail.com">
+						wrowebsite@gmail.com
 					</a> to report this issue if you have some time.
 				</p>
 			{/if}

@@ -9,6 +9,7 @@
 	import parallaxImage from '$lib/utils/parallaxImage';
 	import gsap from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { PortableText } from '@portabletext/svelte';
 
 	export let homePage: HomePage;
 
@@ -45,7 +46,9 @@
 				<h1 class="font-black text-[2.5rem] uppercase leading-none tracking-tight sm:text-[4rem]">
 					{cleanText(homePage.heroTitle)}
 				</h1>
-				<p class="mt-6 text-sm leading-tight sm:text-base">{cleanText(homePage.heroSubTitle)}</p>
+				<p class="rich-text mt-6 text-sm leading-tight sm:text-base">
+					<PortableText components={{}} value={homePage.heroSubTitle} />
+				</p>
 
 				<div class="mb-9 mt-9 flex gap-8 sm:mb-12 sm:mt-11 sm:grid sm:grid-cols-2 sm:gap-10">
 					<div class="grid gap-2">

@@ -4,6 +4,7 @@
 	import { cleanText } from '$lib/utils';
 	import PatternWhite from '$lib/components/PatternWhite.svelte';
 	import type { HomePage } from '$lib/sanity/types';
+	import { PortableText } from '@portabletext/svelte';
 
 	export let homePage: HomePage;
 
@@ -50,8 +51,8 @@
 					</div>
 				</div>
 
-				<p class="text-center text-sm leading-tight sm:text-base">
-					{cleanText(homePage.categoryDescription)}
+				<p class="rich-text text-center text-sm leading-tight sm:text-base">
+					<PortableText components={{}} value={homePage.categoryDescription} />
 				</p>
 
 				<div class="relative z-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

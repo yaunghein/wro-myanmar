@@ -35,7 +35,7 @@
 					{cleanText(seasonPage.calendarTitle)}
 				</h2>
 
-				<div class="max-w-[31rem] text-center text-sm leading-tight sm:text-base">
+				<div class="rich-text max-w-[31rem] text-center text-sm leading-tight sm:text-base">
 					<PortableText components={{}} value={seasonPage.calendarDescription} />
 				</div>
 			</div>

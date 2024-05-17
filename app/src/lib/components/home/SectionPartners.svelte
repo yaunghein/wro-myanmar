@@ -3,6 +3,7 @@
 	import { urlFor } from '$lib/sanity/image';
 	import type { HomePage } from '$lib/sanity/types';
 	import parallaxImage from '$lib/utils/parallaxImage';
+	import { PortableText } from '@portabletext/svelte';
 
 	export let homePage: HomePage;
 </script>
@@ -25,7 +26,7 @@
 			{cleanText(homePage.partnerTitle)}
 		</h2>
 		<p class="mb-1 max-w-[30rem] text-sm leading-tight sm:mb-3 sm:text-base">
-			{cleanText(homePage.partnerDescription)}
+			<PortableText components={{}} value={homePage.partnerDescription} />
 		</p>
 		<a
 			href="/join-as-partner"

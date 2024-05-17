@@ -23,7 +23,7 @@ export default defineType({
     defineField({
       name: 'heroSubTitle',
       title: 'Hero Sub Title',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'highlightTeamLabel',
@@ -69,7 +69,7 @@ export default defineType({
     defineField({
       name: 'categoryDescription',
       title: 'Category Description',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'categoryBtnOneLabel',
@@ -109,7 +109,7 @@ export default defineType({
     defineField({
       name: 'partnerDescription',
       title: 'Partner Description',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'partnerBtnLabel',
