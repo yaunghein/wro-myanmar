@@ -193,7 +193,24 @@ export type SeasonPage = {
   heroTitleNormal?: string;
   heroTitleGradient?: string;
   heroSubTitle?: string;
-  heroSubDescription?: string;
+  heroSubDescription?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   heroImage?: CustomImage;
   timelineLabel?: string;
   calendarLabel?: string;
@@ -201,7 +218,24 @@ export type SeasonPage = {
   registrationLabel?: string;
   seasonTitleOne?: string;
   seasonTitleTwo?: string;
-  seasonDescription?: string;
+  seasonDescription?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   seasonBtnLabel?: string;
   eventTimeline?: Array<{
     _key: string;
@@ -229,11 +263,45 @@ export type SeasonPage = {
     _key: string;
   } & Event>;
   ruleTitle?: string;
-  ruleDescription?: string;
+  ruleDescription?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   roboRules?: RuleRobo;
   innovatorRules?: RuleInnovator;
   registerTitle?: string;
-  registerDescription?: string;
+  registerDescription?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   registerBtnLabel?: string;
   registerImage?: CustomImage;
 };
@@ -275,7 +343,24 @@ export type HomePage = {
   } & CustomImage>;
   categoryTitleOne?: string;
   categoryTitleTwo?: string;
-  categoryDescription?: string;
+  categoryDescription?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   categoryBtnOneLabel?: string;
   categoryBtnTwoLabel?: string;
   robo?: BlockCategory;
@@ -283,7 +368,24 @@ export type HomePage = {
   innovator?: BlockCategory;
   innovatorRules?: RuleInnovator;
   partnerTitle?: string;
-  partnerDescription?: string;
+  partnerDescription?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   partnerBtnLabel?: string;
   partnerImage?: CustomImage;
 };
@@ -298,7 +400,24 @@ export type Partner = {
   type?: "premium" | "gold" | "silver" | "school";
   sponsor?: string;
   image?: CustomImage;
-  description?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   link?: string;
   label?: string;
 };
