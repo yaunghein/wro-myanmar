@@ -65,7 +65,7 @@
 				<div
 					class="rich-text flex max-w-[28.5rem] flex-col gap-6 text-sm leading-tight tracking-tight sm:text-base"
 				>
-					<PortableText components={{}} value={homePage.robo?.moreInfo} />
+					<PortableText components={{}} value={homePage.innovator?.moreInfo} />
 				</div>
 			</div>
 			<img
