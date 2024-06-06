@@ -90,7 +90,7 @@
 				</div>
 				<div class="flex">
 					<div class="w-28 shrink-0 sm:w-36">Price:</div>
-					<div class="font-black">{formatMMK(material.price)}</div>
+					<div class="font-black">{cleanText(material.price)}</div>
 				</div>
 				<div class="flex">
 					<div class="w-28 shrink-0 sm:w-36">Delivery Fees:</div>

@@ -32,7 +32,7 @@
 			{cleanText(material.availability)}
 		</div>
 		<div class="ml-0 text-sm font-bold sm:ml-auto sm:mr-9 sm:text-base">Price</div>
-		<div class="ml-auto font-black text-sm sm:ml-0 sm:text-base">{formatMMK(material.price)}</div>
+		<div class="ml-auto font-black text-sm sm:ml-0 sm:text-base">{cleanText(material.price)}</div>
 	</div>
 	<a
 		href="/materials/{material.slug.current}"

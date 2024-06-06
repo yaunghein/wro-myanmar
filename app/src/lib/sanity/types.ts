@@ -452,7 +452,7 @@ export type Material = {
     _key: string;
   }>;
   availability?: "In Stock" | "Out of Stock";
-  price?: number;
+  price?: string;
   deliveryFees?: string;
 };
 
