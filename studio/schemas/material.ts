@@ -46,9 +46,7 @@ export default defineType({
     defineField({
       name: 'price',
       title: 'Price',
-      type: 'number',
-      description: 'Enter the price of the product in Myanmar Kyat (MMK).',
-      validation: (Rule) => Rule.min(0).precision(0),
+      type: 'string',
     }),
     defineField({
       name: 'deliveryFees',
