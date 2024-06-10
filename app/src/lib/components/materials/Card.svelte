@@ -36,7 +36,9 @@
 	</div>
 	<a
 		href="/materials/{material.slug.current}"
-		class="flex items-center justify-center bg-white px-6 py-4"
+		class="flex items-center justify-center px-6 py-4 {bg === 'bg-white'
+			? 'bg-off-white'
+			: 'bg-white'}"
 	>
 		<span
 			class="bg-gradient-primary bg-clip-text font-black text-sm uppercase leading-none tracking-tight text-transparent sm:text-base"

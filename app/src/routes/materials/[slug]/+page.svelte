@@ -119,7 +119,7 @@
 				<h1 class="font-black text-[2rem] uppercase leading-none tracking-tight sm:text-[4rem]">
 					Other Materials
 				</h1>
-				<div class="mt-9 grid grid-cols-2 gap-5 sm:mt-16">
+				<div class="mt-9 grid gap-5 sm:mt-16 sm:grid-cols-2">
 					{#each materials as material}
 						<Card {material} bg="bg-white" />
 					{/each}
