@@ -24,9 +24,9 @@
 	</div>
 {:else}
 	<section class="relative bg-white text-black">
-		<div class="padding-global">
+		<div class="padding-global relative ">
 			<div class="flex flex-col pb-9 pt-9 sm:pb-16 sm:pt-32">
-				<h1 class="font-black text-[2.5rem] uppercase leading-none tracking-tight sm:text-[4rem]">
+				<h1 class="z-10 font-black text-[2.5rem] uppercase leading-none tracking-tight sm:text-[4rem]">
 					{cleanText(newsPage.title)}
 				</h1>
 

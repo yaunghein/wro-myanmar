@@ -22,9 +22,13 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={cleanText(metaData?.title)} />
 	<meta property="og:description" content={cleanText(metaData?.description)} />
-	<meta property="og:image" content={urlFor(metaData?.ogImage).url()} />
+
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:title" content={cleanText(metaData?.title)} />
 	<meta property="twitter:description" content={cleanText(metaData?.description)} />
-	<meta property="twitter:image" content={urlFor(metaData?.ogImage).url()} />
+
+	{#if metaData?.ogImage}
+		<meta property="og:image" content={urlFor(metaData?.ogImage).url()} />
+		<meta property="twitter:image" content={urlFor(metaData?.ogImage).url()} />
+	{/if}
 </svelte:head>
