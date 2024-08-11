@@ -14,7 +14,7 @@
 		<img
 			src={urlFor(material.image.image).url()}
 			alt={cleanText(material.image.caption)}
-			class="aspect-[2.02/1] w-full object-cover"
+			class="aspect-[1.5/1] w-full object-cover"
 		/>
 	</div>
 	<h2 class="font-black text-sm uppercase leading-tight tracking-tight sm:text-2xl">
