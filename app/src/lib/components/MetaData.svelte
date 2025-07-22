@@ -4,8 +4,7 @@
 	import type { MetaData } from '$lib/sanity/types';
 	export let metaData: Partial<MetaData> | undefined;
 
-	const keywords =
-		'World Robot Olympiad Myanmar, WRO competition Myanmar, Robotics competition in Myanmar, International robotics contest Myanmar, STEM events Myanmar, WRO age categories Myanmar, Robotics education Myanmar, Educational robotics Myanmar, WRO national team Myanmar, WRO registration Myanmar, Robotics kits Myanmar, WRO finals Myanmar, WRO winners Myanmar, Learn robotics Myanmar, Youth robotics Myanmar, WRO updates Myanmar, Robot building competition Myanmar, WRO regional events Myanmar, WRO sponsors Myanmar, WRO 2024 Myanmar';
+	const keywords = `World Robot Olympiad Myanmar, WRO competition Myanmar, Robotics competition in Myanmar, International robotics contest Myanmar, STEM events Myanmar, WRO age categories Myanmar, Robotics education Myanmar, Educational robotics Myanmar, WRO national team Myanmar, WRO registration Myanmar, Robotics kits Myanmar, WRO finals Myanmar, WRO winners Myanmar, Learn robotics Myanmar, Youth robotics Myanmar, WRO updates Myanmar, Robot building competition Myanmar, WRO regional events Myanmar, WRO sponsors Myanmar, WRO ${new Date().getFullYear()} Myanmar`;
 </script>
 
 <!-- favicon htae ya oo ml -->

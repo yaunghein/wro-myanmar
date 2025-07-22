@@ -25,83 +25,83 @@
 					class="mt-9 flex flex-col items-start justify-start gap-[1.75rem] sm:mt-0 sm:flex-row sm:justify-between sm:gap-12"
 				>
 					<div class="w-40 sm:w-32">
-						<div class="mb-3 font-black text-sm leading-tight tracking-tight sm:mb-6 sm:text-base">
+						<div class="mb-3 text-sm font-black leading-tight tracking-tight sm:mb-6 sm:text-base">
 							ADDRESS
 						</div>
 						<div class="flex flex-col gap-2">
 							<a
 								target="_blank"
 								href="https://maps.app.goo.gl/DNHLkZg6b82xg6XY9"
-								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								class="wro-transition hover:text-accent-100 text-xs leading-none tracking-tight sm:text-sm sm:leading-tight"
 							>
 								Shophouse No.215, Times City, Kamayut, Yangon, Myanmar.
 							</a>
 						</div>
 					</div>
 					<div>
-						<div class="mb-3 font-black text-sm leading-tight tracking-tight sm:mb-6 sm:text-base">
+						<div class="mb-3 text-sm font-black leading-tight tracking-tight sm:mb-6 sm:text-base">
 							COMPETITIONS
 						</div>
 						<div class="flex flex-col gap-2">
 							<a
-								href="/season-2024"
-								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								href="/season-this-year"
+								class="wro-transition hover:text-accent-100 text-xs leading-none tracking-tight sm:text-sm sm:leading-tight"
 							>
-								2024 Season
+								{new Date().getFullYear()} Season
 							</a>
 							<a
 								href="/register"
-								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								class="wro-transition hover:text-accent-100 text-xs leading-none tracking-tight sm:text-sm sm:leading-tight"
 							>
 								Register Now
 							</a>
 						</div>
 					</div>
 					<div class="">
-						<div class="mb-3 font-black text-sm leading-tight tracking-tight sm:mb-6 sm:text-base">
+						<div class="mb-3 text-sm font-black leading-tight tracking-tight sm:mb-6 sm:text-base">
 							RESOURCES
 						</div>
 						<div class="flex flex-col gap-2">
 							<a
 								href="/materials"
-								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								class="wro-transition hover:text-accent-100 text-xs leading-none tracking-tight sm:text-sm sm:leading-tight"
 							>
 								Materials
 							</a>
 							<a
 								href="/news"
-								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								class="wro-transition hover:text-accent-100 text-xs leading-none tracking-tight sm:text-sm sm:leading-tight"
 							>
 								News
 							</a>
 						</div>
 					</div>
 					<div class="">
-						<div class="mb-3 font-black text-sm leading-tight tracking-tight sm:mb-6 sm:text-base">
+						<div class="mb-3 text-sm font-black leading-tight tracking-tight sm:mb-6 sm:text-base">
 							INFORMATION
 						</div>
 						<div class="flex flex-col gap-2">
 							<a
 								href="/contact"
-								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								class="wro-transition hover:text-accent-100 text-xs leading-none tracking-tight sm:text-sm sm:leading-tight"
 							>
 								General Inquiry
 							</a>
 							<a
 								href="/register"
-								class="wro-transition whitespace-nowrap text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								class="wro-transition hover:text-accent-100 whitespace-nowrap text-xs leading-none tracking-tight sm:text-sm sm:leading-tight"
 							>
 								Register for Competition
 							</a>
 							<a
 								href="/join-as-partner"
-								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								class="wro-transition hover:text-accent-100 text-xs leading-none tracking-tight sm:text-sm sm:leading-tight"
 							>
 								Join as Our Partner
 							</a>
 							<a
 								href="/sponsorship"
-								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
+								class="wro-transition hover:text-accent-100 text-xs leading-none tracking-tight sm:text-sm sm:leading-tight"
 							>
 								Sponsorship
 							</a>
@@ -109,7 +109,7 @@
 					</div>
 					<div class="">
 						<div
-							class="mb-3 whitespace-nowrap font-black text-sm leading-tight tracking-tight sm:mb-6 sm:text-base"
+							class="mb-3 whitespace-nowrap text-sm font-black leading-tight tracking-tight sm:mb-6 sm:text-base"
 						>
 							SOCIAL MEDIA
 						</div>
@@ -117,7 +117,7 @@
 							<a
 								target="_blank"
 								href="https://www.facebook.com/profile.php?id=61557750792097&mibextid=LQQJ4d"
-								class="wro-transition aspect-square w-5 hover:text-accent-100"
+								class="wro-transition hover:text-accent-100 aspect-square w-5"
 							>
 								<Facebook />
 								<span class="sr-only">Facebook</span>
@@ -125,7 +125,7 @@
 							<a
 								target="_blank"
 								href="/"
-								class="wro-transition pointer-events-none aspect-square w-5 opacity-50 hover:text-accent-100"
+								class="wro-transition hover:text-accent-100 pointer-events-none aspect-square w-5 opacity-50"
 							>
 								<Instagram />
 								<span class="sr-only">Instagram</span>
@@ -133,7 +133,7 @@
 							<a
 								target="_blank"
 								href="/"
-								class="wro-transition pointer-events-none aspect-square w-5 opacity-50 hover:text-accent-100"
+								class="wro-transition hover:text-accent-100 pointer-events-none aspect-square w-5 opacity-50"
 							>
 								<LinkedIn />
 								<span class="sr-only">LinkedIn</span>
@@ -143,7 +143,7 @@
 				</div>
 
 				<p
-					class="wro-transition max-w-[43rem] text-xs leading-tight tracking-tight hover:text-accent-100 sm:text-sm"
+					class="wro-transition hover:text-accent-100 max-w-[43rem] text-xs leading-tight tracking-tight sm:text-sm"
 				>
 					World Robot Olympiad™ Association is an independent non-profit organization. All revenue
 					from sponsorships and fees is invested in support of our mission, which is to promote
