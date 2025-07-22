@@ -122,10 +122,10 @@
 								<div class="flex flex-col items-start gap-2">
 									<a
 										on:click={() => (isCompetitionsOpen = !isCompetitionsOpen)}
-										href="/season-2024"
+										href="/season-this-year"
 										class="wro-transition group relative leading-tight hover:text-accent-100"
 									>
-										<span class="whitespace-nowrap">2024 Season</span>
+										<span class="whitespace-nowrap">{new Date().getFullYear()} Season</span>
 										<div
 											class="wro-transition absolute inset-0 top-auto h-[0.1rem] w-full bg-accent-100 opacity-0 group-hover:opacity-100"
 										/>
@@ -330,10 +330,10 @@
 				<div class="flex flex-col gap-4 pt-9">
 					<a
 						on:click={() => menuTl?.reverse()}
-						href="/season-2024"
+						href="/season-this-year"
 						class="wro-transition padding-global group relative block leading-tight"
 					>
-						<span>2024 Season</span>
+						<span>{new Date().getFullYear()} Season</span>
 					</a>
 					<a
 						on:click={() => menuTl?.reverse()}

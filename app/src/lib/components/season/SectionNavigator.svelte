@@ -28,7 +28,7 @@
 
 <nav
 	class="sticky top-28 z-10 hidden bg-off-white font-black uppercase leading-none text-black sm:block"
-	aria-label="Season 2024 Page Sections"
+	aria-label={`Season ${new Date().getFullYear()} Page Sections`}
 >
 	<div
 		class={twm(

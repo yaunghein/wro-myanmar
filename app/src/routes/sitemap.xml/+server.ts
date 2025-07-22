@@ -26,7 +26,12 @@ export const GET: RequestHandler = async (event) => {
 	const materials = prepare(materialsData, 0.5);
 	const pages = [
 		{ path: '', lastmod: new Date().toISOString(), frequency: 'monthly', priority: 1 },
-		{ path: 'season-2024', lastmod: new Date().toISOString(), frequency: 'monthly', priority: 1 },
+		{
+			path: 'season-this-year',
+			lastmod: new Date().toISOString(),
+			frequency: 'monthly',
+			priority: 1
+		},
 		{ path: 'partners', lastmod: new Date().toISOString(), frequency: 'daily', priority: 0.5 },
 		{ path: 'materials', lastmod: new Date().toISOString(), frequency: 'daily', priority: 0.5 },
 		{ path: 'news', lastmod: new Date().toISOString(), frequency: 'daily', priority: 1 },

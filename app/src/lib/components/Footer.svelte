@@ -44,10 +44,10 @@
 						</div>
 						<div class="flex flex-col gap-2">
 							<a
-								href="/season-2024"
+								href="/season-this-year"
 								class="wro-transition text-xs leading-none tracking-tight hover:text-accent-100 sm:text-sm sm:leading-tight"
 							>
-								2024 Season
+								{new Date().getFullYear()} Season
 							</a>
 							<a
 								href="/register"
