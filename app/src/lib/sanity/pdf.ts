@@ -2,14 +2,14 @@ import { client } from './client';
 
 interface PDF {
 	_type: string;
-	asset: {
+	asset?: {
 		_ref: string;
 		_type: string;
 	};
 }
 
 export function urlForPDF(source: PDF | undefined) {
-	if (!source) return '';
+	if (!source?.asset?._ref) return '';
 	const clientId = client.config().projectId;
 	const dataset = client.config().dataset;
 	const filename = source.asset._ref.split('-')[1];

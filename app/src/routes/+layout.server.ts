@@ -4,6 +4,7 @@ import type { JoinUsPage } from '$lib/sanity/types';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async (event) => {
+	console.log('load layout');
 	const { preview } = event.locals;
 
 	const { loadQuery } = event.locals;
