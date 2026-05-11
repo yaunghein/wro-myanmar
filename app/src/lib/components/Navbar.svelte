@@ -58,8 +58,8 @@
 	};
 </script>
 
-<header class="bg-brand sticky top-0 z-20">
-	<div class="padding-global bg-brand relative z-10">
+<header class="sticky top-0 z-20 bg-brand">
+	<div class="padding-global relative z-10 bg-brand">
 		<div class="flex items-center justify-between py-8">
 			<a on:click={() => menuTl?.reverse()} href="/" class="shrink-0">
 				<span class="sr-only">Go Home</span>
@@ -67,10 +67,10 @@
 			</a>
 
 			<nav class="hidden items-center justify-end gap-14 sm:flex">
-				<a href="/" class="wro-transition hover:text-accent-100 group relative leading-tight">
+				<a href="/" class="wro-transition group relative leading-tight hover:text-accent-100">
 					<span>Home</span>
 					<div
-						class="wro-transition bg-accent-100 absolute inset-0 top-auto h-[0.1rem] w-full opacity-0 group-hover:opacity-100"
+						class="wro-transition absolute inset-0 top-auto h-[0.1rem] w-full bg-accent-100 opacity-0 group-hover:opacity-100"
 					/>
 				</a>
 				<div
@@ -80,7 +80,7 @@
 					on:mouseleave={() => (isCompetitionsOpen = false)}
 				>
 					<button
-						class="wro-transition hover:text-accent-100 group relative flex items-center leading-tight"
+						class="wro-transition group relative flex items-center leading-tight hover:text-accent-100"
 					>
 						<span>Competitions</span>
 						<div class="aspect-square w-6">
@@ -108,7 +108,7 @@
 							</svg>
 						</div>
 						<div
-							class="wro-transition bg-accent-100 absolute inset-0 top-auto h-[0.1rem] w-[80%] opacity-0 group-hover:opacity-100"
+							class="wro-transition absolute inset-0 top-auto h-[0.1rem] w-[80%] bg-accent-100 opacity-0 group-hover:opacity-100"
 						/>
 					</button>
 					{#if isCompetitionsOpen}
@@ -117,27 +117,27 @@
 							out:scale={{ start: 0.9 }}
 							class="absolute left-1/2 top-5 -translate-x-1/2 pt-5"
 						>
-							<div class="border-accent-100 bg-brand flex flex-col gap-6 border-2 p-6">
+							<div class="flex flex-col gap-6 border-2 border-accent-100 bg-brand p-6">
 								<div class="font-black uppercase">competitions</div>
 								<div class="flex flex-col items-start gap-2">
 									<a
 										on:click={() => (isCompetitionsOpen = !isCompetitionsOpen)}
 										href="/season-this-year"
-										class="wro-transition hover:text-accent-100 group relative leading-tight"
+										class="wro-transition group relative leading-tight hover:text-accent-100"
 									>
 										<span class="whitespace-nowrap">{new Date().getFullYear()} Season</span>
 										<div
-											class="wro-transition bg-accent-100 absolute inset-0 top-auto h-[0.1rem] w-full opacity-0 group-hover:opacity-100"
+											class="wro-transition absolute inset-0 top-auto h-[0.1rem] w-full bg-accent-100 opacity-0 group-hover:opacity-100"
 										/>
 									</a>
 									<a
 										on:click={() => (isCompetitionsOpen = !isCompetitionsOpen)}
 										href="/register"
-										class="wro-transition hover:text-accent-100 group relative leading-tight"
+										class="wro-transition group relative leading-tight hover:text-accent-100"
 									>
 										<span class="whitespace-nowrap">Register Now</span>
 										<div
-											class="wro-transition bg-accent-100 absolute inset-0 top-auto h-[0.1rem] w-full opacity-0 group-hover:opacity-100"
+											class="wro-transition absolute inset-0 top-auto h-[0.1rem] w-full bg-accent-100 opacity-0 group-hover:opacity-100"
 										/>
 									</a>
 								</div>
@@ -147,31 +147,31 @@
 				</div>
 				<a
 					href="/partners"
-					class="wro-transition hover:text-accent-100 group relative leading-tight"
+					class="wro-transition group relative leading-tight hover:text-accent-100"
 				>
 					<span>Partners</span>
 					<div
-						class="wro-transition bg-accent-100 absolute inset-0 top-auto h-[0.1rem] w-full opacity-0 group-hover:opacity-100"
+						class="wro-transition absolute inset-0 top-auto h-[0.1rem] w-full bg-accent-100 opacity-0 group-hover:opacity-100"
 					/>
 				</a>
 				<a
 					href="/materials"
-					class="wro-transition hover:text-accent-100 group relative leading-tight"
+					class="wro-transition group relative leading-tight hover:text-accent-100"
 				>
 					<span>Materials</span>
 					<div
-						class="wro-transition bg-accent-100 absolute inset-0 top-auto h-[0.1rem] w-full opacity-0 group-hover:opacity-100"
+						class="wro-transition absolute inset-0 top-auto h-[0.1rem] w-full bg-accent-100 opacity-0 group-hover:opacity-100"
 					/>
 				</a>
-				<a href="/news" class="wro-transition hover:text-accent-100 group relative leading-tight">
+				<a href="/news" class="wro-transition group relative leading-tight hover:text-accent-100">
 					<span>News</span>
 					<div
-						class="wro-transition bg-accent-100 absolute inset-0 top-auto h-[0.1rem] w-full opacity-0 group-hover:opacity-100"
+						class="wro-transition absolute inset-0 top-auto h-[0.1rem] w-full bg-accent-100 opacity-0 group-hover:opacity-100"
 					/>
 				</a>
 				<a
 					href="/register"
-					class="bg-gradient-primary w-full px-6 py-3 text-center text-sm font-black uppercase leading-none tracking-tight text-white sm:w-auto sm:text-base"
+					class="w-full bg-gradient-primary px-6 py-3 text-center font-black text-sm uppercase leading-none tracking-tight text-white sm:w-auto sm:text-base"
 				>
 					Join Us
 				</a>
@@ -274,7 +274,7 @@
 
 	<nav
 		use:navAnimation
-		class="hide-scrollbar bg-brand fixed inset-0 -bottom-1 top-auto h-0 w-full overflow-hidden sm:hidden"
+		class="hide-scrollbar fixed inset-0 -bottom-1 top-auto h-0 w-full overflow-hidden bg-brand sm:hidden"
 	>
 		<div class="py-[5.5rem]">
 			<a
@@ -439,14 +439,14 @@
 				<a
 					on:click={() => menuTl?.reverse()}
 					href="/register"
-					class="mobile-menu-link wro-transition padding-global bg-gradient-primary group relative block py-4 text-center leading-tight"
+					class="mobile-menu-link wro-transition padding-global group relative block bg-gradient-primary py-4 text-center leading-tight"
 				>
 					<span class="font-black uppercase">Join Us</span>
 				</a>
 			</div>
 		</div>
 
-		<div class="mobile-menu-pattern bg-brand fixed bottom-0 left-0 w-0 overflow-hidden">
+		<div class="mobile-menu-pattern fixed bottom-0 left-0 w-0 overflow-hidden bg-brand">
 			<Pattern />
 		</div>
 	</nav>

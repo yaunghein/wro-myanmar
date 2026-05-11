@@ -27,7 +27,7 @@
 </script>
 
 <nav
-	class="bg-off-white sticky top-28 z-10 hidden font-black uppercase leading-none text-black sm:block"
+	class="sticky top-28 z-10 hidden bg-off-white font-black uppercase leading-none text-black sm:block"
 	aria-label={`Season ${new Date().getFullYear()} Page Sections`}
 >
 	<div
