@@ -46,6 +46,9 @@
 	},
 	"type": "module",
 	"engines": {
-		"node": "22.x"
+		"node": "20.x"
+	},
+	"optionalDependencies": {
+		"@rollup/rollup-linux-x64-gnu": "^4.60.3"
 	}
 }
